@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 import { AppConfigModule } from './app-config.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -29,6 +34,10 @@ import { ErrorInterceptor } from './libs/utils/error.interceptor';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatToolbarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AppConfigModule

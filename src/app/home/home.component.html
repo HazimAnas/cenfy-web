@@ -1,8 +1,20 @@
-<h1>Home</h1>
-<p>You're logged in with Angular 7 & JWT!!</p>
-<div>
-    Users from secure api end point:
-    <ul>
-        <li *ngFor="let user of users">{{user.displayName}} {{user.email}}</li>
-    </ul>
+<div class="component">
+  <h1>Home</h1>
+  <div>
+      Service providers
+      <ul>
+          <mat-card class="list-item-card" *ngFor="let sp of serviceProviders">
+            <mat-card-header>
+              <mat-card-title><a mat-button color="accent" routerLink=".">{{sp.displayName}}</a></mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="https://placeimg.com/640/480/any" alt="Placeholder image">
+            <mat-card-content>
+              <p>{{sp.description}}</p>
+            </mat-card-content>
+            <span *ngFor="let category of sp.categories">
+              <a mat-button color="warn" routerLink="home">{{category.name}}</a>
+            </span>
+          </mat-card>
+      </ul>
+  </div>
 </div>

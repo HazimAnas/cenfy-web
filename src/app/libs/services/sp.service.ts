@@ -5,12 +5,12 @@ import { HttpClient } from '@angular/common/http';
 import { APP_CONFIG, AppConfig } from '../../app-config.module';
 
 @Injectable({ providedIn: 'root' })
-export class UserService {
+export class ServiceProviderService {
     constructor(
       private http: HttpClient,
       @Inject(APP_CONFIG) private config: AppConfig) { }
 
     getAll() {
-        return this.http.get<any>(`${this.config.apiEndpoint}/users`);
+        return this.http.get<any>(`${this.config.apiEndpoint}/sp`);
     }
 }

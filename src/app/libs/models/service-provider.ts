@@ -1,7 +1,7 @@
-export class User {
+export class ServiceProvider {
   displayName: String;
   description: String;
-  category: [{ name: String }];
+  categories: [{ name: String }];
   images: [{ loc: String }];
   user: String;
   status: Boolean;

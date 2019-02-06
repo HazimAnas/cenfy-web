@@ -1,3 +1,11 @@
-<p>
-  header works!
-</p>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>{{ title }}!</span>
+    <span class="fill-remaining-space"></span>
+    <div class="example-button-row">
+      <a mat-button color="warn" routerLink="register">Register</a>
+      <a mat-button color="warn" routerLink="login">Login</a>
+      <a mat-button color="warn" routerLink="home">Home</a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
