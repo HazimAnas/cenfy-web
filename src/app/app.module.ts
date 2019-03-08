@@ -13,13 +13,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 import{ JwtInterceptor } from './libs/utils/jwt.interceptor';
 import { ErrorInterceptor } from './libs/utils/error.interceptor';
+import { SidenavComponent } from './shared/sidenav/sidenav.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +32,9 @@ import { ErrorInterceptor } from './libs/utils/error.interceptor';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+.component {
+    margin: 0em 10em;
+}
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-container > * {
+  width: 100%;
+}
