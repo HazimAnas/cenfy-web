@@ -1,13 +1,22 @@
-.example-form {
+.component {
+    margin: 5em 10em;
+}
+
+.register-container {
+  display: flex;
+  flex-direction: column;
   min-width: 150px;
   max-width: 500px;
+}
+
+.register-container > * {
   width: 100%;
 }
 
-.example-full-width {
+.field-full-width {
   width: 100%;
 }
 
-.component {
-    margin: 0em 10em;
+.login-form {
+  width: 100%;
 }
