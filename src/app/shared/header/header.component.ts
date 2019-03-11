@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { AuthenticationService } from '../../libs/services/authentication.service';
+import { User } from '../../libs/models/user';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 title = 'cenfy-web';
-  constructor() { }
+isLoggedIn = this.authenticationService.isLoggedIn();
+
+  constructor(
+    private authenticationService: AuthenticationService
+  ) { }
 
   ngOnInit() {
+
+  }
+
+  onLogout(){
+    this.authenticationService.logout();
   }
 
 }
