@@ -4,10 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material';
 
 import { AppConfigModule } from './app-config.module';
 import { AppComponent } from './app.component';
@@ -43,6 +45,8 @@ import { SidenavComponent } from './shared/sidenav/sidenav.component';
     MatButtonModule,
     MatInputModule,
     MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AppConfigModule

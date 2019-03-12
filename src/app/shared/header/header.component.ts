@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { AuthenticationService } from '../../libs/services/authentication.service';
@@ -12,7 +12,7 @@ import { User } from '../../libs/models/user';
 export class HeaderComponent implements OnInit {
 title = 'cenfy-web';
 isLoggedIn = this.authenticationService.isLoggedIn();
-
+@Output() public sidenavToggle = new EventEmitter();
   constructor(
     private authenticationService: AuthenticationService
   ) { }
@@ -21,6 +21,10 @@ isLoggedIn = this.authenticationService.isLoggedIn();
 
   }
 
+  public onToggleSidenav = () => {
+    this.sidenavToggle.emit();
+  }
+  
   onLogout(){
     this.authenticationService.logout();
   }

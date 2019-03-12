@@ -13,7 +13,9 @@ import { ServiceProviderService } from '../libs/services/sp.service';
 export class HomeComponent implements OnInit {
   serviceProviders: ServiceProvider[] = [];
 
-  constructor(private serviceProviderService: ServiceProviderService) { }
+  constructor(
+    private serviceProviderService: ServiceProviderService
+  ) { }
 
   ngOnInit() {
     this.serviceProviderService.getAll().pipe(first()).subscribe(results => {
