@@ -3,6 +3,12 @@
   margin-right: 8px;
 }
 
+mat-toolbar, mat-toolbar-row {
+  position: fixed;
+  left: 0em;
+  top: 0em;
+  z-index: 99;
+}
 .fill-remaining-space {
   /* This fills the remaining space, by using flexbox.
      Every toolbar row uses a flexbox row layout. */

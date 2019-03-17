@@ -1,11 +1,25 @@
-mat-sidenav-container, mat-sidenav-content, mat-sidenav {
-    height: 95%;
+mat-sidenav-container, mat-sidenav-content {
+    min-height: 100%;
+    width: 100%;
+    overflow: visible;
+    display: block;
+    padding: 5em;
 }
 
 mat-sidenav {
+    min-height: 100%;
     width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 5em
 }
 
 main {
-    padding: 10px;
+    /*padding: 10px;*/
+}
+
+app-footer {
+  display: block;
+  height: 10em;
 }

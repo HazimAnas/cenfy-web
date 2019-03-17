@@ -1,8 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
 
 import { AuthenticationService } from '../../libs/services/authentication.service';
-import { User } from '../../libs/models/user';
 
 @Component({
   selector: 'app-header',
@@ -24,7 +22,7 @@ isLoggedIn = this.authenticationService.isLoggedIn();
   public onToggleSidenav = () => {
     this.sidenavToggle.emit();
   }
-  
+
   onLogout(){
     this.authenticationService.logout();
   }

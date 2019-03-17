@@ -9,6 +9,7 @@
       <a *ngIf="!(isLoggedIn | async)" mat-button color="warn" routerLink="register">Register</a>
       <a *ngIf="!(isLoggedIn | async)" mat-button color="warn" routerLink="login">Login</a>
       <a *ngIf="isLoggedIn | async" mat-button color="warn" routerLink="home">Home</a>
+      <a *ngIf="isLoggedIn | async" mat-button color="warn" routerLink="account/profile">Profile</a>
       <a *ngIf="isLoggedIn | async" mat-button color="warn" (click)="onLogout()">Logout</a>
     </div>
   </mat-toolbar-row>

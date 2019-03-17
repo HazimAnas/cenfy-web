@@ -24,6 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
 import{ JwtInterceptor } from './libs/utils/jwt.interceptor';
 import { ErrorInterceptor } from './libs/utils/error.interceptor';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
+import { ServiceProviderComponent } from './service-provider/service-provider.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { SidenavComponent } from './shared/sidenav/sidenav.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    SidenavComponent
+    SidenavComponent,
+    ServiceProviderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 .component {
-    margin: 5em 10em;
+    margin: 5em 5em;
+    min-height: 100%;
 }
 
 .register-container {
