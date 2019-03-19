@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppConfigModule } from './app-config.module';
 import { AppComponent } from './app.component';
@@ -49,6 +50,7 @@ import { ServiceProviderComponent } from './service-provider/service-provider.co
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatGridListModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AppConfigModule

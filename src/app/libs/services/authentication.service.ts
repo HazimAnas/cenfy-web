@@ -17,6 +17,8 @@ export class AuthenticationService {
     */
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
+    private currentUserTokenSubject: BehaviorSubject<string>;
+    public currentUserToken: Observable<string>;
     isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
 
     constructor(
@@ -26,10 +28,16 @@ export class AuthenticationService {
     ) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
+        this.currentUserTokenSubject = new BehaviorSubject<string>(JSON.parse(localStorage.getItem('currentUserToken')));
+        this.currentUserToken = this.currentUserTokenSubject.asObservable();
     }
 
     public get currentUserValue(): User {
         return this.currentUserSubject.value;
+    }
+
+    public get currentUserTokenValue(): string {
+        return this.currentUserTokenSubject.value;
     }
 
     /**
@@ -69,7 +77,8 @@ export class AuthenticationService {
                 /** login successful if there's a jwt token in the response */
                 if (user && user.token) {
                     /** store user details and jwt token in local storage to keep user logged in between page refreshes */
-                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    localStorage.setItem('currentUser', JSON.stringify(user.data));
+                    localStorage.setItem('currentUserToken', JSON.stringify(user.token));
                     /** Add user data in current user variable */
                     this.currentUserSubject.next(user);
                     /** set login status to true */
@@ -92,6 +101,7 @@ export class AuthenticationService {
         this.isLoginSubject.next(false);
         /** remove user from local storage to log user out */
         localStorage.removeItem('currentUser');
+        localStorage.removeItem('currentUserToken');
         /** Remove user data in current user variable */
         this.currentUserSubject.next(null);
         /** Redirect to login page */

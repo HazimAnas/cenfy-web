@@ -2,8 +2,9 @@
   <h1>Home</h1>
   <div>
       Service providers
-      <ul>
-          <mat-card class="list-item-card" *ngFor="let sp of serviceProviders">
+      <mat-grid-list cols="4" rowHeight="2:3" gutterSize="1em">
+        <mat-grid-tile *ngFor="let sp of serviceProviders" [colspan]="1" [rowspan]="1">
+          <mat-card class="list-item-card">
             <mat-card-header>
               <mat-card-title><a mat-button color="accent" routerLink=".">{{sp.displayName}}</a></mat-card-title>
             </mat-card-header>
@@ -15,6 +16,7 @@
               <a mat-button color="warn" routerLink="home">{{category.name}}</a>
             </span>
           </mat-card>
-      </ul>
+        </mat-grid-tile>
+      </mat-grid-list>
   </div>
 </div>

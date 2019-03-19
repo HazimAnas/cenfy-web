@@ -1,6 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { AuthenticationService } from './authentication.service';
+
 //import { User } from '../models/user';
 
 import { APP_CONFIG, AppConfig } from '../../app-config.module';
@@ -9,10 +11,15 @@ import { APP_CONFIG, AppConfig } from '../../app-config.module';
 export class UserService {
     constructor(
       private http: HttpClient,
-      @Inject(APP_CONFIG) private config: AppConfig) { }
+      @Inject(APP_CONFIG) private config: AppConfig,
+      private authenticationService: AuthenticationService) {}
 
     getAll() {
         return this.http.get<any>(`${this.config.apiEndpoint}/users`);
+    }
+
+    getUser() {
+        return this.http.get<any>(`${this.config.apiEndpoint}/users/${this.authenticationService.currentUserValue._id}`);
     }
 
     register(email: string, password: string, username: string, displayName: string) {
