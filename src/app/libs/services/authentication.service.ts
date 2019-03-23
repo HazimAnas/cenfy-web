@@ -57,7 +57,7 @@ export class AuthenticationService {
 
    */
     private hasToken() : boolean {
-      return !!localStorage.getItem('currentUser');
+      return !!localStorage.getItem('currentUserToken');
     }
 
     /**
@@ -80,7 +80,8 @@ export class AuthenticationService {
                     localStorage.setItem('currentUser', JSON.stringify(user.data));
                     localStorage.setItem('currentUserToken', JSON.stringify(user.token));
                     /** Add user data in current user variable */
-                    this.currentUserSubject.next(user);
+                    this.currentUserSubject.next(user.data);
+                    this.currentUserTokenSubject.next(user.token);
                     /** set login status to true */
                     this.isLoginSubject.next(true);
                 }
@@ -104,6 +105,7 @@ export class AuthenticationService {
         localStorage.removeItem('currentUserToken');
         /** Remove user data in current user variable */
         this.currentUserSubject.next(null);
+        this.currentUserTokenSubject.next(null);
         /** Redirect to login page */
         this.router.navigate(['/login']);
     }
