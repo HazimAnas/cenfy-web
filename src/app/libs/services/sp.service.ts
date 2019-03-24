@@ -13,4 +13,8 @@ export class ServiceProviderService {
     getAll() {
         return this.http.get<any>(`${this.config.apiEndpoint}/sp`);
     }
+
+    getServiceProvider(id: String) {
+        return this.http.get<any>(`${this.config.apiEndpoint}/sp/${id}`);
+    }
 }

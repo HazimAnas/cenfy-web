@@ -1,3 +1,21 @@
 <p>
   service-provider works!
 </p>
+<p>
+  {{serviceProvider?._id}}
+</p>
+<p>
+  {{serviceProvider?.displayName}}
+</p>
+<span *ngFor="let category of serviceProvider?.categories">
+  <a mat-button color="warn" routerLink="home">{{category?.name}}</a>
+</span>
+<p>
+  {{serviceProvider?.description}}
+</p>
+<p>
+  {{serviceProvider?.user._id}}
+</p>
+<p>
+  {{serviceProvider?.user.displayName}}
+</p>

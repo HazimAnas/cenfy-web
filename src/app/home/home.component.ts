@@ -18,6 +18,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getServiceProvider();
+  }
+
+  getServiceProvider() {
     this.serviceProviderService.getAll().pipe(first()).subscribe(results => {
             this.serviceProviders = results.data;
     });

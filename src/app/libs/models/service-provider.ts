@@ -1,4 +1,5 @@
 export class ServiceProvider {
+  _id: String;
   displayName: String;
   description: String;
   categories: [{ name: String }];
