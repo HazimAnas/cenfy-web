@@ -29,6 +29,7 @@ import{ JwtInterceptor } from './libs/utils/jwt.interceptor';
 import { ErrorInterceptor } from './libs/utils/error.interceptor';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { ServiceProviderComponent } from './service-provider/service-provider.component';
+import { BrowseComponent } from './browse/browse.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ServiceProviderComponent } from './service-provider/service-provider.co
     RegisterComponent,
     ProfileComponent,
     SidenavComponent,
-    ServiceProviderComponent
+    ServiceProviderComponent,
+    BrowseComponent
   ],
   imports: [
     BrowserModule,
