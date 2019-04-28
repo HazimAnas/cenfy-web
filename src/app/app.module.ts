@@ -11,6 +11,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatJumbotronModule } from '@angular-material-extensions/jumbotron';
 
 import { AppConfigModule } from './app-config.module';
 import { AppComponent } from './app.component';
@@ -50,7 +53,10 @@ import { ServiceProviderComponent } from './service-provider/service-provider.co
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatTabsModule,
+    MatIconModule,
     MatGridListModule,
+    MatJumbotronModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AppConfigModule

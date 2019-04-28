@@ -1,5 +1,102 @@
 <div class="component">
-  <h1>Home</h1>
+  <mat-tab-group headerPosition="below">
+  <mat-tab label="First">
+    <mat-jumbotron imgURL="https://placeimg.com/640/480/any">
+      <mat-jumbotron-content>
+        <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">Welcome to Servpod</h1>
+        <p class="headline" ngClass.xs="text-center">We provide blablabla...
+        </p>
+
+        <p class="text-center"> Scroll down to see it in action!</p>
+
+        <div fxLayout="row" fxLayout.xs="column"
+             fxLayoutGap.xs="1rem"
+             fxLayoutAlign="center center">
+          <a mat-stroked-button
+             color="primary"
+             target="_blank"
+             href="https://github.com/angular-material-extensions/jumbotron">
+            <mat-icon>code</mat-icon>
+            Test 1
+          </a>
+          <a mat-stroked-button
+             color="primary"
+             target="_blank"
+             href="doc/index.html">
+            <mat-icon>note</mat-icon>
+            Test 2
+          </a>
+        </div>
+
+      </mat-jumbotron-content>
+    </mat-jumbotron>
+  </mat-tab>
+  <mat-tab label="Second">
+    <mat-jumbotron imgURL="https://placeimg.com/640/480/any">
+      <mat-jumbotron-content>
+        <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">jumbotron 2</h1>
+        <p class="headline" ngClass.xs="text-center">Angular UI open source library built
+          with material design in order to illustrate a highlighted/important information for the user
+        </p>
+
+        <p class="text-center"> Scroll down to see it in action!</p>
+
+        <div fxLayout="row" fxLayout.xs="column"
+             fxLayoutGap.xs="1rem"
+             fxLayoutAlign="center center">
+          <a mat-stroked-button
+             color="primary"
+             target="_blank"
+             href="https://github.com/angular-material-extensions/jumbotron">
+            <mat-icon>code</mat-icon>
+            Test 1
+          </a>
+          <a mat-stroked-button
+             color="primary"
+             target="_blank"
+             href="doc/index.html">
+            <mat-icon>note</mat-icon>
+            Test 2
+          </a>
+        </div>
+
+      </mat-jumbotron-content>
+    </mat-jumbotron>
+  </mat-tab>
+  <mat-tab label="Third">
+    <mat-jumbotron imgURL="https://placeimg.com/640/480/any">
+      <mat-jumbotron-content>
+        <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">jumbotron 3</h1>
+        <p class="headline" ngClass.xs="text-center">Angular UI open source library built
+          with material design in order to illustrate a highlighted/important information for the user
+        </p>
+
+        <p class="text-center"> Scroll down to see it in action!</p>
+
+        <div fxLayout="row" fxLayout.xs="column"
+             fxLayoutGap.xs="1rem"
+             fxLayoutAlign="center center">
+          <a mat-stroked-button
+             color="primary"
+             target="_blank"
+             href="https://github.com/angular-material-extensions/jumbotron">
+            <mat-icon>code</mat-icon>
+            Test 1
+          </a>
+          <a mat-stroked-button
+             color="primary"
+             target="_blank"
+             href="doc/index.html">
+            <mat-icon>note</mat-icon>
+            Test 2
+          </a>
+        </div>
+
+      </mat-jumbotron-content>
+    </mat-jumbotron>
+  </mat-tab>
+</mat-tab-group>
+
   <div>
       Service providers
       <mat-grid-list cols="4" rowHeight="2:3" gutterSize="1em">

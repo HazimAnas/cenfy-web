@@ -8,7 +8,7 @@ import { AuthenticationService } from '../../libs/services/authentication.servic
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-title = 'cenfy-web';
+title = 'Servpod';
 isLoggedIn = this.authenticationService.isLoggedIn();
 @Output() public sidenavToggle = new EventEmitter();
   constructor(
