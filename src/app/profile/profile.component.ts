@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../libs/services/user.service';
+import { ServiceProviderService } from '../libs/services/sp.service';
 import { User } from '../libs/models/user';
+import { ServiceProvider } from '../libs/models/service-provider';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { first } from 'rxjs/operators';
 
@@ -13,10 +15,12 @@ export class ProfileComponent implements OnInit {
 
   profileForm: FormGroup;
   user : User;
+  serviceProvider: ServiceProvider;
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private spService: ServiceProviderService
   ) {
 
   }
@@ -27,7 +31,7 @@ export class ProfileComponent implements OnInit {
     this.profileForm = this.formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
             password: '',
-            username: ['', Validators.required],
+            userName: ['', Validators.required],
             displayName: ['', Validators.required],
             address: ['', Validators.required],
             phoneNumber: ['', Validators.required]
@@ -49,7 +53,7 @@ export class ProfileComponent implements OnInit {
   this.profileForm
     .patchValue({
        email: this.user.email,
-       username: this.user.username,
+       userName: this.user.userName,
        displayName: this.user.displayName,
        address: this.user.address,
        phoneNumber: this.user.phoneNumber

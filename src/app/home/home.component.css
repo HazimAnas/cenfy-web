@@ -1,9 +1,7 @@
 .component {
-    margin: 0em 10em;
-    min-height: 100%;
+  margin: 0em 10em;
 }
 
 .list-item-card {
-  margin: 0em 0em;
-  max-width: 20em;
+  max-width: 400px;
 }

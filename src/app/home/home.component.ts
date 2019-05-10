@@ -12,6 +12,7 @@ import { ServiceProviderService } from '../libs/services/sp.service';
 })
 export class HomeComponent implements OnInit {
   serviceProviders: ServiceProvider[] = [];
+   breakpoint: number;
 
   constructor(
     private serviceProviderService: ServiceProviderService
@@ -19,6 +20,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getServiceProvider();
+    this.breakpoint = (window.innerWidth <= 1080) ? 3 : 5;
+  }
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 1080) ? 3 : 5;
   }
 
   getServiceProvider() {

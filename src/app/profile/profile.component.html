@@ -1,61 +1,127 @@
 <div class="component">
-  <mat-card class="profile-container">
-    <mat-card-header>
-      <mat-card-title>Profile</mat-card-title>
-    </mat-card-header>
-      <mat-card-content>
-      <form class="profile-form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-          <mat-form-field class="field-full-width">
-              <mat-label for="email">Email</mat-label>
-              <input matInput placeholder="Enter your email" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-              <mat-error *ngIf="f.email.hasError('email') && !f.email.hasError('required')">
-                Please enter a valid email address
-              </mat-error>
-              <mat-error *ngIf="f.email.hasError('required')">
-                Email is <strong>required</strong>
-              </mat-error>
-          </mat-form-field>
-          <mat-form-field class="field-full-width">
-              <mat-label for="displayName">Display name</mat-label>
-              <input matInput placeholder="Enter your display name" type="text" formControlName="displayName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.displayName.errors }" />
-              <mat-error *ngIf="f.displayName.hasError('required')">
-                Display name is <strong>required</strong>
-              </mat-error>
-          </mat-form-field>
-          <mat-form-field class="field-full-width">
-              <mat-label for="username">Username</mat-label>
-              <input matInput placeholder="Enter your username" type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-              <mat-error *ngIf="f.username.hasError('required')">
-                Username is <strong>required</strong>
-              </mat-error>
-          </mat-form-field>
-          <mat-form-field class="field-full-width">
-              <mat-label for="password">Password</mat-label>
-              <input matInput placeholder="Enter your password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-              <mat-error *ngIf="f.password.hasError('required')">
-                Password is <strong>required</strong>
-              </mat-error>
-          </mat-form-field>
-          <mat-form-field class="field-full-width">
-              <mat-label for="address">Address</mat-label>
-              <input matInput placeholder="Enter your address" type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
-              <mat-error *ngIf="f.address.hasError('required')">
-                Address is <strong>required</strong>
-              </mat-error>
-          </mat-form-field>
-          <mat-form-field class="field-full-width">
-              <mat-label for="phoneNumber">Phone number</mat-label>
-              <input matInput placeholder="Enter your phone number" type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
-              <mat-error *ngIf="f.phoneNumber.hasError('required')">
-                Phone number is <strong>required</strong>
-              </mat-error>
-          </mat-form-field>
-          <div class="form-group">
-              <button [disabled]="loading" class="btn btn-primary">Register</button>
-              <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-          </div>
-          <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-      </form>
-    </mat-card-content>
-  </mat-card>
+  <mat-tab-group headerPosition="top">
+    <mat-tab label="Profile">
+      <mat-card class="profile-container">
+        <mat-card-header>
+          <mat-card-title>Profile</mat-card-title>
+        </mat-card-header>
+          <mat-card-content>
+          <form class="profile-form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+              <mat-form-field class="field-full-width">
+                  <mat-label for="email">Email</mat-label>
+                  <input matInput placeholder="Enter your email" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                  <mat-error *ngIf="f.email.hasError('email') && !f.email.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="f.email.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field class="field-full-width">
+                  <mat-label for="displayName">Display name</mat-label>
+                  <input matInput placeholder="Enter your display name" type="text" formControlName="displayName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.displayName.errors }" />
+                  <mat-error *ngIf="f.displayName.hasError('required')">
+                    Display name is <strong>required</strong>
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field class="field-full-width">
+                  <mat-label for="userName">Username</mat-label>
+                  <input matInput placeholder="Enter your username" type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+                  <mat-error *ngIf="f.userName.hasError('required')">
+                    Username is <strong>required</strong>
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field class="field-full-width">
+                  <mat-label for="password">Password</mat-label>
+                  <input matInput placeholder="Enter your password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                  <mat-error *ngIf="f.password.hasError('required')">
+                    Password is <strong>required</strong>
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field class="field-full-width">
+                  <mat-label for="address">Address</mat-label>
+                  <input matInput placeholder="Enter your address" type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+                  <mat-error *ngIf="f.address.hasError('required')">
+                    Address is <strong>required</strong>
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field class="field-full-width">
+                  <mat-label for="phoneNumber">Phone number</mat-label>
+                  <input matInput placeholder="Enter your phone number" type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
+                  <mat-error *ngIf="f.phoneNumber.hasError('required')">
+                    Phone number is <strong>required</strong>
+                  </mat-error>
+              </mat-form-field>
+              <div class="form-group">
+                  <button [disabled]="loading" class="btn btn-primary">Register</button>
+                  <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+              </div>
+              <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+  <mat-tab label="Service provider">
+    <mat-card class="profile-container">
+      <mat-card-header>
+        <mat-card-title>Profile</mat-card-title>
+      </mat-card-header>
+        <mat-card-content>
+        <form class="profile-form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="field-full-width">
+                <mat-label for="email">Email</mat-label>
+                <input matInput placeholder="Enter your email" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <mat-error *ngIf="f.email.hasError('email') && !f.email.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="f.email.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="field-full-width">
+                <mat-label for="displayName">Display name</mat-label>
+                <input matInput placeholder="Enter your display name" type="text" formControlName="displayName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.displayName.errors }" />
+                <mat-error *ngIf="f.displayName.hasError('required')">
+                  Display name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="field-full-width">
+                <mat-label for="userName">Username</mat-label>
+                <input matInput placeholder="Enter your username" type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+                <mat-error *ngIf="f.userName.hasError('required')">
+                  Username is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="field-full-width">
+                <mat-label for="password">Password</mat-label>
+                <input matInput placeholder="Enter your password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <mat-error *ngIf="f.password.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="field-full-width">
+                <mat-label for="address">Address</mat-label>
+                <input matInput placeholder="Enter your address" type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+                <mat-error *ngIf="f.address.hasError('required')">
+                  Address is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="field-full-width">
+                <mat-label for="phoneNumber">Phone number</mat-label>
+                <input matInput placeholder="Enter your phone number" type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
+                <mat-error *ngIf="f.phoneNumber.hasError('required')">
+                  Phone number is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">Register</button>
+                <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            </div>
+            <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
+
 </div>

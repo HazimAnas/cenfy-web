@@ -1,121 +1,167 @@
-<div class="component">
-  <mat-tab-group headerPosition="below">
-  <mat-tab label="First">
-    <mat-jumbotron imgURL="https://placeimg.com/640/480/any">
-      <mat-jumbotron-content>
-        <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">Welcome to Servpod</h1>
-        <p class="headline" ngClass.xs="text-center">We provide blablabla...
-        </p>
+<div layout="row">
+  <div flex>
+    <mat-tab-group headerPosition="below" mat-align-tabs="center" dynamicHeight>
+      <mat-tab label="First">
+        <mat-jumbotron imgURL="https://placeimg.com/640/480/any">
+          <mat-jumbotron-content>
+            <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">Welcome to Servpod</h1>
+            <p class="headline" ngClass.xs="text-center">We provide blablabla...
+            </p>
 
-        <p class="text-center"> Scroll down to see it in action!</p>
+            <p class="text-center"> Scroll down to see it in action!</p>
 
-        <div fxLayout="row" fxLayout.xs="column"
-             fxLayoutGap.xs="1rem"
-             fxLayoutAlign="center center">
-          <a mat-stroked-button
-             color="primary"
-             target="_blank"
-             href="https://github.com/angular-material-extensions/jumbotron">
-            <mat-icon>code</mat-icon>
-            Test 1
-          </a>
-          <a mat-stroked-button
-             color="primary"
-             target="_blank"
-             href="doc/index.html">
-            <mat-icon>note</mat-icon>
-            Test 2
-          </a>
-        </div>
+            <div fxLayout="row" fxLayout.xs="column"
+                 fxLayoutGap.xs="1rem"
+                 fxLayoutAlign="center center">
+              <a mat-stroked-button
+                 color="primary"
+                 target="_blank"
+                 href="https://github.com/angular-material-extensions/jumbotron">
+                <mat-icon>code</mat-icon>
+                Test 1
+              </a>
+              <a mat-stroked-button
+                 color="primary"
+                 target="_blank"
+                 href="doc/index.html">
+                <mat-icon>note</mat-icon>
+                Test 2
+              </a>
+            </div>
 
-      </mat-jumbotron-content>
-    </mat-jumbotron>
-  </mat-tab>
-  <mat-tab label="Second">
-    <mat-jumbotron imgURL="https://placeimg.com/640/480/any">
-      <mat-jumbotron-content>
-        <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">jumbotron 2</h1>
-        <p class="headline" ngClass.xs="text-center">Angular UI open source library built
-          with material design in order to illustrate a highlighted/important information for the user
-        </p>
+          </mat-jumbotron-content>
+        </mat-jumbotron>
+      </mat-tab>
+      <mat-tab label="Second">
+        <mat-jumbotron imgURL="https://placeimg.com/640/480/any">
+          <mat-jumbotron-content>
+            <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">jumbotron 2</h1>
+            <p class="headline" ngClass.xs="text-center">Angular UI open source library built
+              with material design in order to illustrate a highlighted/important information for the user
+            </p>
 
-        <p class="text-center"> Scroll down to see it in action!</p>
+            <p class="text-center"> Scroll down to see it in action!</p>
 
-        <div fxLayout="row" fxLayout.xs="column"
-             fxLayoutGap.xs="1rem"
-             fxLayoutAlign="center center">
-          <a mat-stroked-button
-             color="primary"
-             target="_blank"
-             href="https://github.com/angular-material-extensions/jumbotron">
-            <mat-icon>code</mat-icon>
-            Test 1
-          </a>
-          <a mat-stroked-button
-             color="primary"
-             target="_blank"
-             href="doc/index.html">
-            <mat-icon>note</mat-icon>
-            Test 2
-          </a>
-        </div>
+            <div fxLayout="row" fxLayout.xs="column"
+                 fxLayoutGap.xs="1rem"
+                 fxLayoutAlign="center center">
+              <a mat-stroked-button
+                 color="primary"
+                 target="_blank"
+                 href="https://github.com/angular-material-extensions/jumbotron">
+                <mat-icon>code</mat-icon>
+                Test 1
+              </a>
+              <a mat-stroked-button
+                 color="primary"
+                 target="_blank"
+                 href="doc/index.html">
+                <mat-icon>note</mat-icon>
+                Test 2
+              </a>
+            </div>
 
-      </mat-jumbotron-content>
-    </mat-jumbotron>
-  </mat-tab>
-  <mat-tab label="Third">
-    <mat-jumbotron imgURL="https://placeimg.com/640/480/any">
-      <mat-jumbotron-content>
-        <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">jumbotron 3</h1>
-        <p class="headline" ngClass.xs="text-center">Angular UI open source library built
-          with material design in order to illustrate a highlighted/important information for the user
-        </p>
+          </mat-jumbotron-content>
+        </mat-jumbotron>
+      </mat-tab>
+      <mat-tab label="Third">
+        <mat-jumbotron imgURL="https://placeimg.com/640/480/any">
+          <mat-jumbotron-content>
+            <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">jumbotron 3</h1>
+            <p class="headline" ngClass.xs="text-center">Angular UI open source library built
+              with material design in order to illustrate a highlighted/important information for the user
+            </p>
 
-        <p class="text-center"> Scroll down to see it in action!</p>
+            <p class="text-center"> Scroll down to see it in action!</p>
 
-        <div fxLayout="row" fxLayout.xs="column"
-             fxLayoutGap.xs="1rem"
-             fxLayoutAlign="center center">
-          <a mat-stroked-button
-             color="primary"
-             target="_blank"
-             href="https://github.com/angular-material-extensions/jumbotron">
-            <mat-icon>code</mat-icon>
-            Test 1
-          </a>
-          <a mat-stroked-button
-             color="primary"
-             target="_blank"
-             href="doc/index.html">
-            <mat-icon>note</mat-icon>
-            Test 2
-          </a>
-        </div>
+            <div fxLayout="row" fxLayout.xs="column"
+                 fxLayoutGap.xs="1rem"
+                 fxLayoutAlign="center center">
+              <a mat-stroked-button
+                 color="primary"
+                 target="_blank"
+                 href="https://github.com/angular-material-extensions/jumbotron">
+                <mat-icon>code</mat-icon>
+                Test 1
+              </a>
+              <a mat-stroked-button
+                 color="primary"
+                 target="_blank"
+                 href="doc/index.html">
+                <mat-icon>note</mat-icon>
+                Test 2
+              </a>
+            </div>
 
-      </mat-jumbotron-content>
-    </mat-jumbotron>
-  </mat-tab>
-</mat-tab-group>
+          </mat-jumbotron-content>
+        </mat-jumbotron>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div flex class="component">
+    <h1 class="mat-display-1">Featured service provider</h1>
 
-  <div>
-      Service providers
-      <a mat-button color="primary" routerLink="browse">Browse</a>
+    <a mat-button color="primary" routerLink="/browse">Browse</a>
 
-      <mat-grid-list cols="4" rowHeight="2:3" gutterSize="1em">
-        <mat-grid-tile *ngFor="let sp of serviceProviders" [colspan]="1" [rowspan]="1">
-          <mat-card class="list-item-card">
-            <mat-card-header>
-              <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp.displayName}}</a></mat-card-title>
-            </mat-card-header>
-            <img mat-card-image src="https://placeimg.com/640/480/any" alt="Placeholder image">
-            <mat-card-content>
-              <p>{{sp.description}}</p>
-            </mat-card-content>
-            <span *ngFor="let category of sp.categories">
-              <a mat-button color="warn" routerLink="/home">{{category.name}}</a>
-            </span>
-          </mat-card>
-        </mat-grid-tile>
-      </mat-grid-list>
+    <mat-grid-list [cols]="breakpoint" rowHeight="25em" (window:resize)="onResize($event)" gutterSize="1em">
+      <mat-grid-tile *ngFor="let sp of serviceProviders">
+        <mat-card class="list-item-card">
+          <mat-card-header>
+            <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp.displayName}}</a></mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="https://placeimg.com/640/480/any" alt="Placeholder image">
+          <mat-card-content>
+            <p>{{sp.description}}</p>
+          </mat-card-content>
+          <span *ngFor="let category of sp.categories">
+            <a mat-button color="warn" routerLink="/home">{{category.name}}</a>
+          </span>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div flex class="component">
+    <h1 class="mat-display-1">Explore service provider</h1>
+    <mat-grid-list [cols]="breakpoint" rowHeight="25em" (window:resize)="onResize($event)" gutterSize="1em">
+      <mat-grid-tile *ngFor="let sp of serviceProviders">
+        <mat-card class="list-item-card">
+          <mat-card-header>
+            <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp.displayName}}</a></mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="https://placeimg.com/640/480/any" alt="Placeholder image">
+          <mat-card-content>
+            <p mat-body>{{sp.description}}</p>
+          </mat-card-content>
+          <span *ngFor="let category of sp.categories">
+            <a mat-button color="warn" routerLink="/home">{{category.name}}</a>
+          </span>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div flex class="component">
+    <h1 class="mat-display-1">Explore categories</h1>
+    <mat-grid-list [cols]="breakpoint" rowHeight="25em" (window:resize)="onResize($event)" gutterSize="1em">
+      <mat-grid-tile *ngFor="let sp of serviceProviders">
+        <mat-card class="list-item-card">
+          <mat-card-header>
+            <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp.displayName}}</a></mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="https://placeimg.com/640/480/any" alt="Placeholder image">
+          <mat-card-content>
+            <p>{{sp.description}}</p>
+          </mat-card-content>
+          <span *ngFor="let category of sp.categories">
+            <a mat-button color="warn" routerLink="/home">{{category.name}}</a>
+          </span>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div flex class="component">
+    <h1 class="mat-display-1">Statistics</h1>
+  </div>
+  <div flex class="component">
+    <h1 class="mat-display-1">Contact</h1>
   </div>
 </div>

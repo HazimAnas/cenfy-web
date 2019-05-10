@@ -3,7 +3,16 @@
       <span class="nav-caption">Home</span>
   </a>
   <a *ngIf="isLoggedIn | async" mat-list-item routerLink="/account/profile" (click)="onSidenavClose()">
-      <span class="nav-caption">Profile</span>
+      <span class="nav-caption">Account</span>
+  </a>
+  <a *ngIf="isLoggedIn | async" mat-list-item routerLink="/account/profile" (click)="onSidenavClose()">
+      <span class="nav-caption">Schedule</span>
+  </a>
+  <a *ngIf="isLoggedIn | async" mat-list-item routerLink="/account/profile" (click)="onSidenavClose()">
+      <span class="nav-caption">Timeline</span>
+  </a>
+  <a *ngIf="isLoggedIn | async" mat-list-item routerLink="/account/profile" (click)="onSidenavClose()">
+      <span class="nav-caption">Feedback</span>
   </a>
   <a *ngIf="!(isLoggedIn | async)" mat-list-item routerLink="/register" (click)="onSidenavClose()">
       <span class="nav-caption">Register</span>
