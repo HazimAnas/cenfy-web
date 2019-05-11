@@ -13,7 +13,7 @@ import { ServiceProvider } from '../libs/models/service-provider';
 export class ServiceProviderComponent implements OnInit {
 
   serviceProvider: ServiceProvider;
-  serviceProviderId: String;
+  serviceProviderId: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,

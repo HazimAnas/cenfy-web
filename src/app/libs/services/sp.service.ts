@@ -16,13 +16,11 @@ export class ServiceProviderService {
         return this.http.get<any>(`${this.config.apiEndpoint}/sp`);
     }
 
-    getServiceProvider(id: String) {
-        if(id = ""){
+    getServiceProvider(id: string) {
+        if(id == ""){
           return of([])
         }
         else {
-          console.log(id);
-          console.log(`${this.config.apiEndpoint}/sp/${id}`);
           return this.http.get<any>(`${this.config.apiEndpoint}/sp/${id}`);
         }
     }
