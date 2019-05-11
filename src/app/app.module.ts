@@ -3,17 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatIconModule } from '@angular/material/icon';
-import { MatJumbotronModule } from '@angular-material-extensions/jumbotron';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppConfigModule } from './app-config.module';
 import { AppComponent } from './app.component';
@@ -24,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CustomMaterialModule } from './material.module';
 
 import{ JwtInterceptor } from './libs/utils/jwt.interceptor';
 import { ErrorInterceptor } from './libs/utils/error.interceptor';
@@ -49,16 +40,8 @@ import { BrowseComponent } from './browse/browse.component';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatTabsModule,
-    MatIconModule,
-    MatGridListModule,
-    MatJumbotronModule,
+    FlexLayoutModule,
+    CustomMaterialModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AppConfigModule

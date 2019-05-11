@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { of }  from "rxjs";
 
 //import { User } from '../models/user';
 import { APP_CONFIG, AppConfig } from '../../app-config.module';
@@ -16,7 +17,14 @@ export class ServiceProviderService {
     }
 
     getServiceProvider(id: String) {
-        return this.http.get<any>(`${this.config.apiEndpoint}/sp/${id}`);
+        if(id = ""){
+          return of([])
+        }
+        else {
+          console.log(id);
+          console.log(`${this.config.apiEndpoint}/sp/${id}`);
+          return this.http.get<any>(`${this.config.apiEndpoint}/sp/${id}`);
+        }
     }
 
     createSp(email: string, password: string, username: string, displayName: string) {

@@ -4,7 +4,8 @@ import { ServiceProviderService } from '../libs/services/sp.service';
 import { User } from '../libs/models/user';
 import { ServiceProvider } from '../libs/models/service-provider';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { first } from 'rxjs/operators';
+import { first, switchMap, tap, map } from 'rxjs/operators';
+import { Observable, from } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -14,6 +15,7 @@ import { first } from 'rxjs/operators';
 export class ProfileComponent implements OnInit {
 
   profileForm: FormGroup;
+  spForm: FormGroup;
   user : User;
   serviceProvider: ServiceProvider;
 
@@ -36,17 +38,27 @@ export class ProfileComponent implements OnInit {
             address: ['', Validators.required],
             phoneNumber: ['', Validators.required]
     });
+
+    this.spForm = this.formBuilder.group({
+            displayName: ['', Validators.required]
+    });
   }
 
   get f() { return this.profileForm.controls; }
 
+  get g() { return this.profileForm.controls; }
+
   getUserData(): void {
-    this.userService.getUser().pipe(first()).subscribe(result => {
-            //set result to user data
-            this.user = result.data;
-            //update form values
-            this.setValues();
-    });
+
+    from(this.userService.getUser()).pipe(map( result => {
+        this.user = result.data
+    }),switchMap( result => <Observable<any>> this.spService.getServiceProvider(this.user.serviceProvider)),
+    ).subscribe(result => {
+              //set result to user data
+              this.serviceProvider = result.data;
+              //update form values
+              this.setValues();
+            });
   }
 
   setValues(): void {
@@ -57,7 +69,13 @@ export class ProfileComponent implements OnInit {
        displayName: this.user.displayName,
        address: this.user.address,
        phoneNumber: this.user.phoneNumber
-     })
+     });
+
+  this.spForm
+    .patchValue({
+      displayName: this.serviceProvider.displayName
+    });
+
    }
 
    onSubmit() {
