@@ -11,7 +11,7 @@ import { first } from 'rxjs/operators';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
 
@@ -42,7 +42,9 @@ export class ProfileComponent implements OnInit {
     });
 
     this.spForm = this.formBuilder.group({
-            displayName: ['', Validators.required]
+            displayName: ['', Validators.required],
+            description: ['', Validators.required],
+            categories: ['', Validators.required]
     });
   }
 
@@ -69,27 +71,12 @@ export class ProfileComponent implements OnInit {
         this.serviceProvider = result.data;
         this.spForm
           .patchValue({
-            displayName: this.serviceProvider.displayName
+            displayName: this.serviceProvider.displayName,
+            description: this.serviceProvider.description,
+            categories: this.serviceProvider.categories
           });
       });
   }
-
-  setValues(): void {
-  this.profileForm
-    .patchValue({
-       email: this.user.email,
-       userName: this.user.userName,
-       displayName: this.user.displayName,
-       address: this.user.address,
-       phoneNumber: this.user.phoneNumber
-     });
-
-  this.spForm
-    .patchValue({
-      displayName: this.serviceProvider.displayName
-    });
-
-   }
 
    onSubmit() {
    }

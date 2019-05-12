@@ -8,7 +8,7 @@ import { ServiceProvider } from '../libs/models/service-provider';
 @Component({
   selector: 'app-service-provider',
   templateUrl: './service-provider.component.html',
-  styleUrls: ['./service-provider.component.css']
+  styleUrls: ['./service-provider.component.scss']
 })
 export class ServiceProviderComponent implements OnInit {
 
@@ -32,8 +32,6 @@ export class ServiceProviderComponent implements OnInit {
     this.serviceProviderService.getServiceProvider(this.serviceProviderId).pipe(first()).subscribe(result => {
             //set result to user data
             this.serviceProvider = result.data;
-            //update form values
-            this.setValues();
     });
   }
 

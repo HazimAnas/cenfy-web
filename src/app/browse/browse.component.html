@@ -1,21 +1,29 @@
 <div class="component">
-  <div>
-      Service providers
-      <mat-grid-list cols="4" rowHeight="2:3" gutterSize="1em">
-        <mat-grid-tile *ngFor="let sp of serviceProviders" [colspan]="1" [rowspan]="1">
-          <mat-card class="list-item-card">
-            <mat-card-header>
-              <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp.displayName}}</a></mat-card-title>
-            </mat-card-header>
-            <img mat-card-image src="https://placeimg.com/640/480/any" alt="Placeholder image">
-            <mat-card-content>
-              <p>{{sp.description}}</p>
-            </mat-card-content>
-            <span *ngFor="let category of sp.categories">
-              <a mat-button color="warn" routerLink="/home">{{category.name}}</a>
-            </span>
-          </mat-card>
-        </mat-grid-tile>
-      </mat-grid-list>
+  <h1 class="mat-display-1">Explore service provider</h1>
+
+  <div fxLayout="column" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
+    <mat-card *ngFor="let sp of serviceProviders"
+      fxFlex="4 0 98%"
+      class="list-item-card">
+      <mat-card-header fxLayoutAlign="flex-start">
+        <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp.displayName}}</a></mat-card-title>
+      </mat-card-header>
+      <mat-card-content fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
+        <img
+          fxFlex="4 0 19%"
+          fxFlex.lt-lg-="2 0 calc(50%)"
+          fxFlex.lt-sm="1 0 calc(100%)"
+          src="https://placeimg.com/320/240/any"
+          alt="Placeholder image">
+        <div
+          fxFlex="4 0 79%"
+          fxFlex.lt-lg-="2 0 calc(50%)"
+          fxFlex.lt-sm="1 0 calc(100%)">{{sp.description}}
+        </div>
+      </mat-card-content>
+      <span *ngFor="let category of sp.categories">
+        <a mat-button color="warn" routerLink="/home">{{category.name}}</a>
+      </span>
+    </mat-card>
   </div>
 </div>
