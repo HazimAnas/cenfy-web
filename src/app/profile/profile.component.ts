@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../libs/services/user.service';
 import { ServiceProviderService } from '../libs/services/sp.service';
 import { AuthenticationService } from '../libs/services/authentication.service';
@@ -19,8 +20,13 @@ export class ProfileComponent implements OnInit {
   spForm: FormGroup;
   user : User;
   serviceProvider: ServiceProvider;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+  error = '';
 
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
     private userService: UserService,
     private spService: ServiceProviderService,
@@ -44,7 +50,7 @@ export class ProfileComponent implements OnInit {
     this.spForm = this.formBuilder.group({
             displayName: ['', Validators.required],
             description: ['', Validators.required],
-            categories: ['', Validators.required]
+            categories: ''
     });
   }
 
@@ -69,16 +75,46 @@ export class ProfileComponent implements OnInit {
     this.spService.getServiceProvider(this.authenticationService.currentUserValue.serviceProvider).pipe(
       first()).subscribe( result => {
         this.serviceProvider = result.data;
-        this.spForm
-          .patchValue({
-            displayName: this.serviceProvider.displayName,
-            description: this.serviceProvider.description,
-            categories: this.serviceProvider.categories
-          });
+        if (this.serviceProvider) {
+          this.spForm
+            .patchValue({
+              displayName: this.serviceProvider.displayName,
+              description: this.serviceProvider.description,
+              categories: this.serviceProvider.categories
+            });
+        }
       });
   }
 
-   onSubmit() {
+   onSubmitUser() {
+
+   }
+
+   onSubmitSP() {
+     this.submitted = true;
+
+     // stop here if form is invalid
+     if (this.spForm.invalid) {
+       return;
+     }
+
+     if(this.user.serviceProvider) {
+     } else {
+       this.spService.createSp(this.g.displayName.value, this.g.description.value, this.authenticationService.currentUserValue._id)
+           .pipe(first())
+           .subscribe(
+               data => {
+                     this.router.navigate(['/home']);
+               },
+               error => {
+                   this.error = error;
+                   this.loading = false;
+               });
+     }
+
+     this.loading = true;
+
+
    }
 
 }

@@ -25,18 +25,17 @@ export class ServiceProviderService {
         }
     }
 
-    createSp(email: string, password: string, username: string, displayName: string) {
+    createSp(displayName: string, description: string, user: string) {
         let data = {
-          "email": email,
-          "password": password,
-          "userName": username,
-          "displayName": displayName
+          "displayName": displayName,
+          "description": description,
+          "user": user
         }
         return this.http.post<any>(`${this.config.apiEndpoint}/sp`, data)
-            .pipe(map(user => {
+            .pipe(map(sp => {
                 // Register successful created user is returned
 
-                return user;
+                return sp;
             }));
     }
 }
