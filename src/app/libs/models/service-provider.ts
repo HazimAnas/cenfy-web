@@ -6,4 +6,6 @@ export class ServiceProvider {
   images: [{ loc: String }];
   user: String;
   status: Boolean;
+  rank: Number;
+  statistics: [{name: Number}];
 }

@@ -6,7 +6,7 @@ import { AuthenticationService } from '../libs/services/authentication.service';
 import { User } from '../libs/models/user';
 import { ServiceProvider } from '../libs/models/service-provider';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { first } from 'rxjs/operators';
+import { first, mergeMap } from 'rxjs/operators';
 
 
 @Component({
