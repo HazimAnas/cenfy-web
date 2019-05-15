@@ -8,4 +8,6 @@ export class User {
   phoneNumber: string;
   serviceProvider: string;
   token: string;
+  dateCreated: Date;
+
 }

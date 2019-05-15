@@ -2,23 +2,51 @@
   <h1 class="mat-display-1">Explore service provider</h1>
 
   <div fxLayout="column" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
+    <mat-card class="search-container"
+      fxFlex="4 0 98%"
+      class="list-item-card">
+      <mat-card-header fxLayoutAlign="flex-start">
+        <mat-card-title>Search</mat-card-title>
+      </mat-card-header>
+        <mat-card-content  fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
+          <form class="search-form" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+              <mat-form-field class="field-full-width"
+                fxFlex="4 0 80%"
+                fxFlex.lt-lg-="2 0 calc(80%)"
+                fxFlex.lt-sm="1 0 calc(100%)">
+                  <mat-label for="search">Search</mat-label>
+                  <input matInput placeholder="Enter search" type="text" formControlName="search" class="form-control" [ngClass]="{}" />
+              </mat-form-field>
+              <div class="form-group"
+                fxFlex="4 0 20%"
+                fxFlex.lt-lg-="2 0 calc(20%)"
+                fxFlex.lt-sm="1 0 calc(100%)">
+                  <button [disabled]="loading" class="btn btn-primary btn-search">Seach</button>
+                  <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+              </div>
+              <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+          </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxLayout="column" fxLayout.lt-md="column" fxLayoutGap="0.5em">
     <mat-card *ngFor="let sp of serviceProviders"
       fxFlex="4 0 98%"
       class="list-item-card">
       <mat-card-header fxLayoutAlign="flex-start">
         <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp.displayName}}</a></mat-card-title>
       </mat-card-header>
-      <mat-card-content fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
+      <mat-card-content fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="0.5em">
         <img
           fxFlex="4 0 19%"
           fxFlex.lt-lg-="2 0 calc(50%)"
-          fxFlex.lt-sm="1 0 calc(100%)"
+          fxFlex.lt-md="1 0 calc(100%)"
           src="https://placeimg.com/320/240/any"
           alt="Placeholder image">
         <div
           fxFlex="4 0 79%"
           fxFlex.lt-lg-="2 0 calc(50%)"
-          fxFlex.lt-sm="1 0 calc(100%)">{{sp.description}}
+          fxFlex.lt-md="1 0 calc(100%)">{{sp.description}}
         </div>
       </mat-card-content>
       <span *ngFor="let category of sp.categories">
