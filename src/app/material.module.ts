@@ -10,6 +10,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatJumbotronModule } from '@angular-material-extensions/jumbotron';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import {PlatformModule} from '@angular/cdk/platform';
 import {ObserversModule} from '@angular/cdk/observers';
@@ -29,6 +30,7 @@ import {ObserversModule} from '@angular/cdk/observers';
     MatIconModule,
     MatGridListModule,
     MatJumbotronModule,
+    MatExpansionModule,
     PlatformModule,
     ObserversModule
   ]

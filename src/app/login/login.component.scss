@@ -1,6 +1,7 @@
 .component {
-    margin: 5em 5em;
+    margin: 5em;
     min-height: 100%;
+    height: 100%;
 }
 
 .register-container {
@@ -11,6 +12,10 @@
 }
 
 .register-container > * {
+  width: 100%;
+}
+
+.field-full-width {
   width: 100%;
 }
 

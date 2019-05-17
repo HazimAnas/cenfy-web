@@ -101,29 +101,53 @@
   <div class="component">
     <div fxLayout="column" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
       <mat-card class="search-container"
-        fxFlex="4 0 98%"
+        fxFlex="4 0 100%"
         class="list-item-card">
         <mat-card-header fxLayoutAlign="flex-start">
           <mat-card-title>Search</mat-card-title>
         </mat-card-header>
-          <mat-card-content  fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
-            <form class="search-form" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-                <mat-form-field class="field-full-width"
-                  fxFlex="4 0 80%"
-                  fxFlex.lt-lg-="2 0 calc(80%)"
-                  fxFlex.lt-sm="1 0 calc(100%)">
-                    <mat-label for="search">Search</mat-label>
-                    <input matInput placeholder="Enter search" type="text" formControlName="search" class="form-control" [ngClass]="{}" />
+        <mat-card-content>
+          <form class="search-form" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+            <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
+              <mat-form-field class="field-full-width"
+                fxFlex="4 0 80%"
+                fxFlex.lt-lg-="2 0 calc(80%)"
+                fxFlex.lt-sm="1 0 calc(100%)">
+                  <mat-label for="search">Search</mat-label>
+                  <input matInput placeholder="Enter search" type="text" formControlName="search" class="form-control" [ngClass]="{}" />
+              </mat-form-field>
+              <div class="form-group"
+                fxFlex="4 0 20%"
+                fxFlex.lt-lg-="2 0 calc(20%)"
+                fxFlex.lt-sm="1 0 calc(100%)">
+                  <button [disabled]="loading" class="btn btn-primary btn-search">Seach</button>
+                  <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+              </div>
+              <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+            </div>
+            <mat-accordion>
+              <mat-expansion-panel (opened)="panelOpenState = true"
+                                   (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Advanced search
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                  <mat-label for="state">State</mat-label>
+                  <input matInput placeholder="State">
                 </mat-form-field>
-                <div class="form-group"
-                  fxFlex="4 0 20%"
-                  fxFlex.lt-lg-="2 0 calc(20%)"
-                  fxFlex.lt-sm="1 0 calc(100%)">
-                    <button [disabled]="loading" class="btn btn-primary btn-search">Seach</button>
-                    <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-                </div>
-                <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-            </form>
+
+                <mat-form-field>
+                  <mat-label for="category">Category</mat-label>
+                  <input matInput placeholder="Category">
+                </mat-form-field>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </form>
         </mat-card-content>
       </mat-card>
     </div>
@@ -133,10 +157,11 @@
 
     <a mat-button color="primary" routerLink="/browse">Browse</a>
 
-    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
+    <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="0.5em">
       <mat-card *ngFor="let sp of serviceProviders"
-        fxFlex="4 0 19%"
-        fxFlex.lt-lg-="2 0 calc(50%)"
+        fxFlex="4 0 20%"
+        fxFlex.lt-lg-="2 0 calc(20%)"
+        fxFlex.lt-md-="2 0 calc(50%)"
         fxFlex.lt-sm="1 0 calc(100%)"
         class="list-item-card">
         <mat-card-header fxLayoutAlign="flex-start">
@@ -159,10 +184,10 @@
 
     <a mat-button color="primary" routerLink="/browse">Browse</a>
 
-    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
+    <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="0.5em">
       <mat-card *ngFor="let sp of serviceProviders"
-        fxFlex="4 0 19%"
-        fxFlex.lt-lg-="2 0 calc(50%)"
+        fxFlex="4 0 20%"
+        fxFlex.lt-md-="2 0 calc(50%)"
         fxFlex.lt-sm="1 0 calc(100%)"
         class="list-item-card">
         <mat-card-header fxLayoutAlign="flex-start">
@@ -185,10 +210,10 @@
 
     <a mat-button color="primary" routerLink="/browse">Browse</a>
 
-    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="0.5em">
       <mat-card *ngFor="let sp of serviceProviders"
-        fxFlex="4 0 19%"
-        fxFlex.lt-lg-="2 0 calc(50%)"
+        fxFlex="4 0 20%"
+        fxFlex.lt-md-="2 0 calc(50%)"
         fxFlex.lt-sm="1 0 calc(100%)"
         class="list-item-card">
         <mat-card-header fxLayoutAlign="flex-start">
