@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
@@ -27,6 +28,7 @@ import {ObserversModule} from '@angular/cdk/observers';
     MatSidenavModule,
     MatListModule,
     MatTabsModule,
+    MatDividerModule,
     MatIconModule,
     MatGridListModule,
     MatJumbotronModule,

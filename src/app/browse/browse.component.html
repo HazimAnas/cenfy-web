@@ -1,5 +1,5 @@
 <div class="component">
-  
+
   <h1 class="mat-display-1">Explore service provider</h1>
 
   <div fxLayout="column" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
@@ -77,6 +77,10 @@
       <span *ngFor="let category of sp.categories">
         <a mat-button color="warn" routerLink="/home">{{category.name}}</a>
       </span>
+      <mat-card-actions>
+        <button mat-button>Favorite<mat-icon color="warn">favorite</mat-icon></button>
+        <button mat-button>Share<mat-icon color="warn">share</mat-icon></button>
+      </mat-card-actions>
     </mat-card>
   </div>
 </div>

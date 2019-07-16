@@ -1,6 +1,4 @@
 <div class="component">
-  <h1 class="mat-display-1">Explore service provider</h1>
-
   <div fxLayout="column" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
     <mat-card
       fxFlex="4 0 98%"
@@ -19,11 +17,43 @@
           fxFlex="4 0 79%"
           fxFlex.lt-lg-="2 0 calc(50%)"
           fxFlex.lt-sm="1 0 calc(100%)">{{serviceProvider?.description}}
+
         </div>
       </mat-card-content>
       <span *ngFor="let category of serviceProvider?.categories">
         <a mat-button color="warn" routerLink="/home">{{category?.name}}</a>
       </span>
+      <mat-card-actions>
+        <mat-accordion class="contact-us">
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Contact us
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-list>
+              <mat-list-item>
+                <button [disabled]="loading" class="btn btn-primary btn-search">Send message</button>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <mat-label class="field-full-width" >Phone number</mat-label>
+                <mat-label class="field-full-width" >123-4567901</mat-label>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <mat-label class="field-full-width" >Email</mat-label>
+                <mat-label class="field-full-width" >mailto:email@email.com</mat-label>
+              </mat-list-item>
+            </mat-list>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+        <button mat-button>Favorite<mat-icon color="warn">favorite</mat-icon></button>
+        <button mat-button>Share<mat-icon color="warn">share</mat-icon></button>
+      </mat-card-actions>
     </mat-card>
   </div>
 </div>
