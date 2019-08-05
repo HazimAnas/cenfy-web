@@ -13,3 +13,17 @@
 .btn-search {
   width: 100%;
 }
+
+mat-form-field {
+  margin-right: 1em;
+}
+
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  .card {
+    flex: 0 0 auto;
+  }
+}
