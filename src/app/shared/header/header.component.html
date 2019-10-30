@@ -6,6 +6,7 @@
     <span><a routerLink="/" mat-button color="accent">{{ title }}!</a></span>
     <span class="fill-remaining-space"></span>
     <div class="header-button-row">
+      <a  mat-button color="warn" routerLink="home">Home</a>
       <a *ngIf="!(isLoggedIn | async)" mat-button color="warn" routerLink="register">Register</a>
       <a *ngIf="!(isLoggedIn | async)" mat-button color="warn" routerLink="login">Login</a>
       <a *ngIf="isLoggedIn | async" mat-icon-button color="warn" routerLink="home"><mat-icon>help</mat-icon></a>

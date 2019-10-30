@@ -132,9 +132,6 @@
                   <mat-panel-title>
                     Advanced search
                   </mat-panel-title>
-                  <mat-panel-description>
-                    Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                  </mat-panel-description>
                 </mat-expansion-panel-header>
                 <mat-form-field>
                   <mat-label for="state">State</mat-label>
@@ -218,8 +215,8 @@
 
     <a mat-button color="primary" routerLink="/browse">Browse</a>
 
-    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="0.5em">
-      <mat-card *ngFor="let sp of serviceProviders"
+    <div class="scrolling-wrapper" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="0.5em">
+      <mat-card class="card" *ngFor="let sp of serviceProviders"
         fxFlex="4 0 20%"
         fxFlex.lt-md-="2 0 calc(50%)"
         fxFlex.lt-sm="1 0 calc(100%)"

@@ -16,8 +16,8 @@
         <div class="mat-body"
           fxFlex="4 0 79%"
           fxFlex.lt-lg-="2 0 calc(50%)"
-          fxFlex.lt-sm="1 0 calc(100%)">{{serviceProvider?.description}}
-
+          fxFlex.lt-sm="1 0 calc(100%)">
+          {{serviceProvider?.description}}
         </div>
       </mat-card-content>
       <span *ngFor="let category of serviceProvider?.categories">
@@ -35,7 +35,7 @@
 
             <mat-list>
               <mat-list-item>
-                <button [disabled]="loading" class="btn btn-primary btn-search">Send message</button>
+                <button [disabled]="loading" class="btn btn-primary btn-contact">Send message</button>
               </mat-list-item>
               <mat-divider></mat-divider>
               <mat-list-item>
@@ -45,7 +45,7 @@
               <mat-divider></mat-divider>
               <mat-list-item>
                 <mat-label class="field-full-width" >Email</mat-label>
-                <mat-label class="field-full-width" >mailto:email@email.com</mat-label>
+                <mat-label class="field-full-width" ><a href="mailto:email@email.com">email@email.com</a></mat-label>
               </mat-list-item>
             </mat-list>
 
