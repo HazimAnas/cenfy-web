@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   spForm: FormGroup;
   user : User;
   serviceProvider: ServiceProvider;
+  categories: [];
   loading = false;
   submitted = false;
   returnUrl: string;

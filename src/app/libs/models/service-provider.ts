@@ -8,5 +8,9 @@ export class ServiceProvider {
   status: Boolean;
   dateCreated: Date;
   rank: Number;
-  statistics: [{name: Number}];
+  statistics: {
+    view: Number,
+    contact: Number};
+  customers: [{user: String}];
+  ads: [{id: String}];
 }

@@ -82,8 +82,16 @@
                   Description is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
+            <mat-form-field class="field-full-width">
+                <mat-label for="categories">Categories</mat-label>
+                <input matInput placeholder="Enter a category" type="text" formControlName="categories" class="form-control" [ngClass]="{ 'is-invalid': submitted && g.categories.errors }" />
+                <mat-error *ngIf="g.categories.hasError('required')">
+                  Categories is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
             <mat-list *ngIf="serviceProvider" >
              <mat-list-item *ngFor="let category of serviceProvider.categories">{{category}}</mat-list-item>
+             <mat-list-item *ngIf="serviceProvider.categories.length == 0">No category assigned.</mat-list-item>
             </mat-list>
               <div class="form-group">
                 <button [disabled]="loading" class="btn btn-primary">Update</button>
