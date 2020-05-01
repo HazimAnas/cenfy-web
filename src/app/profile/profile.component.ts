@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   spForm: FormGroup;
   user : User;
   serviceProvider: ServiceProvider;
-  categories : string[] = [];
+  categories = [{}];
   loading = false;
   submitted = false;
   returnUrl: string;
@@ -120,7 +120,7 @@ export class ProfileComponent implements OnInit {
 
    addCategory() {
      if( this.spForm.get('categories').value ) {
-       this.categories.push(this.spForm.get('categories').value)
+       this.categories.push({name : this.spForm.get('categories').value})
      }
 
    }

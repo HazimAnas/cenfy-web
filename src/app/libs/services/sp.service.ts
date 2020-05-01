@@ -25,7 +25,7 @@ export class ServiceProviderService {
         }
     }
 
-    createSp(displayName: string, description: string, categories: string[], user: string) {
+    createSp(displayName: string, description: string, categories: [{name: string}], user: string) {
         let data = {
           "displayName": displayName,
           "description": description,

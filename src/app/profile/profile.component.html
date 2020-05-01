@@ -89,11 +89,11 @@
                   Categories is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-            <button mat-icon-button aria-label="Add" (click)="addCategory()">
+            <button type="button" mat-icon-button aria-label="Add" (click)="addCategory()">
               <mat-icon>add_box</mat-icon>
             </button>
             <mat-list *ngIf="categories.length > 0" >
-             <mat-list-item *ngFor="let category of categories">{{category}}</mat-list-item>
+             <mat-list-item *ngFor="let category of categories">{{category.name}}</mat-list-item>
              <mat-list-item *ngIf="categories.length == 0">No category assigned.</mat-list-item>
             </mat-list>
             <div class="form-group">
