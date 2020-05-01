@@ -25,10 +25,11 @@ export class ServiceProviderService {
         }
     }
 
-    createSp(displayName: string, description: string, user: string) {
+    createSp(displayName: string, description: string, categories: string[], user: string) {
         let data = {
           "displayName": displayName,
           "description": description,
+          "categories": categories,
           "user": user
         }
         return this.http.post<any>(`${this.config.apiEndpoint}/sp`, data)

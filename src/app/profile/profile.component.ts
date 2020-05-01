@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   spForm: FormGroup;
   user : User;
   serviceProvider: ServiceProvider;
-  categories: [];
+  categories : string[] = [];
   loading = false;
   submitted = false;
   returnUrl: string;
@@ -80,9 +80,9 @@ export class ProfileComponent implements OnInit {
           this.spForm
             .patchValue({
               displayName: this.serviceProvider.displayName,
-              description: this.serviceProvider.description,
-              categories: this.serviceProvider.categories
+              description: this.serviceProvider.description
             });
+          this.categories = this.serviceProvider.categories;
         }
       });
   }
@@ -101,7 +101,7 @@ export class ProfileComponent implements OnInit {
 
      if(this.user.serviceProvider) {
      } else {
-       this.spService.createSp(this.g.displayName.value, this.g.description.value, this.authenticationService.currentUserValue._id)
+       this.spService.createSp(this.g.displayName.value, this.g.description.value, this.categories, this.authenticationService.currentUserValue._id)
            .pipe(first())
            .subscribe(
                data => {
@@ -115,6 +115,13 @@ export class ProfileComponent implements OnInit {
 
      this.loading = true;
 
+
+   }
+
+   addCategory() {
+     if( this.spForm.get('categories').value ) {
+       this.categories.push(this.spForm.get('categories').value)
+     }
 
    }
 

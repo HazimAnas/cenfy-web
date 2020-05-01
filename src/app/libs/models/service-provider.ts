@@ -1,16 +1,16 @@
 export class ServiceProvider {
-  _id: String;
-  displayName: String;
-  description: String;
-  categories: [{ name: String }];
-  images: [{ loc: String }];
-  user: String;
-  status: Boolean;
+  _id: string;
+  displayName: string;
+  description: string;
+  categories: string[];
+  images: string[];
+  user: string;
+  status: boolean;
   dateCreated: Date;
-  rank: Number;
+  rank: number;
   statistics: {
-    view: Number,
+    view: number,
     contact: Number};
-  customers: [{user: String}];
-  ads: [{id: String}];
+  customers: [{user: string}];
+  ads: [{id: string}];
 }
