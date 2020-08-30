@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../libs/services/authentication.servic
 })
 export class SidenavComponent implements OnInit {
   isLoggedIn = this.authenticationService.isLoggedIn();
-  @ViewChild('sidenav') sidenav: MatSidenav;
+  @ViewChild('sidenav', {static: false}) sidenav: MatSidenav;
   @Output() sidenavClose = new EventEmitter();
 
   constructor(private authenticationService: AuthenticationService) { }
