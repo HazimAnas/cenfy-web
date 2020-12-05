@@ -39,4 +39,18 @@ export class ServiceProviderService {
                 return sp;
             }));
     }
+
+    updateSp(id: string, displayName: string, description: string, categories: [{name: string}]) {
+        let data = {
+          "displayName": displayName,
+          "description": description,
+          "categories": categories
+        }
+        return this.http.put<any>(`${this.config.apiEndpoint}/sp/${id}`, data)
+            .pipe(map(sp => {
+                // Register successful created user is returned
+
+                return sp;
+            }));
+    }
 }

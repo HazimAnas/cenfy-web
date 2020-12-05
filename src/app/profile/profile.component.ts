@@ -99,23 +99,34 @@ export class ProfileComponent implements OnInit {
        return;
      }
 
-     if(this.user.serviceProvider) {
-     } else {
+     if(this.serviceProvider) {
+       this.spService.updateSp(this.serviceProvider._id, this.g.displayName.value, this.g.description.value, this.categories)
+           .pipe(first())
+           .subscribe(
+               data => {
+                     this.router.navigate(['/account/profile']);
+                     this.loading = false;
+               },
+               error => {
+                   this.error = error;
+                   this.loading = false;
+               });
+     this.loading = true;
+   } else {
        this.spService.createSp(this.g.displayName.value, this.g.description.value, this.categories, this.authenticationService.currentUserValue._id)
            .pipe(first())
            .subscribe(
                data => {
-                     this.router.navigate(['/home']);
+                     this.router.navigate(['/account/profile']);
+                     this.serviceProvider = data;
+                     this.loading = false;
                },
                error => {
                    this.error = error;
                    this.loading = false;
                });
      }
-
      this.loading = true;
-
-
    }
 
    addCategory() {
