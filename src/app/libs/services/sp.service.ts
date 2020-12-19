@@ -25,6 +25,15 @@ export class ServiceProviderService {
         }
     }
 
+    searchServiceProvider(search: string) {
+        if(search == ""){
+          return of([])
+        }
+        else {
+          return this.http.get<any>(`${this.config.apiEndpoint}/sp/browse/${search}`);
+        }
+    }
+
     createSp(displayName: string, description: string, categories: [{name: string}], user: string) {
         let data = {
           "displayName": displayName,

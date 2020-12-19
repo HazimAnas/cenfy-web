@@ -39,7 +39,10 @@ export class BrowseComponent implements OnInit {
 
   getServiceProvider() {
     this.serviceProviderService.getAll().pipe(first()).subscribe(results => {
-            this.serviceProviders = results.data;
+      this.serviceProviders = results.data;
+    });
+    this.serviceProviderService.searchServiceProvider(this.route.snapshot.paramMap.get('search')).pipe(first()).subscribe(results => {
+      console.log('elastic'+results);
     });
   }
 
