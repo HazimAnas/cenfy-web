@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { of }  from "rxjs";
+import { of, Observable }  from "rxjs";
 
 //import { User } from '../models/user';
 import { APP_CONFIG, AppConfig } from '../../app-config.module';
@@ -61,5 +61,13 @@ export class ServiceProviderService {
 
                 return sp;
             }));
+    }
+
+    uploadServiceProviderImage(files: File, type: string ) {
+      const data = new FormData();
+      data.append('upload', files);
+
+      console.log(data.get('upload'));
+      return this.http.post<any>(`${this.config.apiEndpoint}/sp/uploadImage`, data);
     }
 }

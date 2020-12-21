@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CustomMaterialModule } from './material.module';
+import { MatFileUploadModule } from 'angular-material-fileupload';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 import{ JwtInterceptor } from './libs/utils/jwt.interceptor';
 import { ErrorInterceptor } from './libs/utils/error.interceptor';
@@ -41,6 +43,8 @@ import { BrowseComponent } from './browse/browse.component';
     ReactiveFormsModule,
     HttpClientModule,
     FlexLayoutModule,
+    MatFileUploadModule,
+    ImageCropperModule,
     CustomMaterialModule,
     AppRoutingModule,
     BrowserAnimationsModule,

@@ -27,3 +27,11 @@
   background-image: url('https://placeimg.com/320/240/any');
   background-size: cover;
 }
+
+image-cropper {
+  max-width: 50%;
+}
+
+.singleFileCropImg {
+  max-width: 20%;
+}

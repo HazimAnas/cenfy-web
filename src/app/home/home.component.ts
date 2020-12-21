@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     });
 
     // get return url from route parameters or default to '/home'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/browse';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/browse/all';
   }
 
   onResize(event) {

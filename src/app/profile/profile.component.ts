@@ -7,7 +7,7 @@ import { User } from '../libs/models/user';
 import { ServiceProvider } from '../libs/models/service-provider';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { first, mergeMap } from 'rxjs/operators';
-
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-profile',
@@ -136,4 +136,45 @@ export class ProfileComponent implements OnInit {
 
    }
 
+   imageChangedEvent: any = '';
+   croppedImage: any = '';
+   base64croppedImage: any = '';
+
+    fileChangeEvent(event: any): void {
+        this.imageChangedEvent = event;
+    }
+    imageCropped(event: ImageCroppedEvent) {
+        this.base64croppedImage = event.base64;
+        this.croppedImage = new File([this.convertDataUrlToBlob(event.base64)], this.serviceProvider.displayName, {type: `image/png`});
+
+    }
+    imageLoaded(image: HTMLImageElement) {
+        // show cropper
+    }
+    cropperReady() {
+        // cropper ready
+    }
+    loadImageFailed() {
+        // show message
+    }
+
+    uploadProfilePicture() {
+      var url = window.URL.createObjectURL(this.croppedImage);
+      window.open(url);
+      this.spService.uploadServiceProviderImage(this.croppedImage, 'profile');
+    }
+
+    convertDataUrlToBlob(dataUrl: any): Blob {
+    const arr = dataUrl.split(',');
+    const mime = arr[0].match(/:(.*?);/)[1];
+    const bstr = atob(arr[1]);
+    let n = bstr.length;
+    const u8arr = new Uint8Array(n);
+
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+
+    return new Blob([u8arr], {type: `image/png`});
+  }
 }
