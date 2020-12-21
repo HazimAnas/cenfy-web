@@ -3,7 +3,6 @@ import { first } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ServiceProvider } from '../libs/models/service-provider';
-//import { AuthenticationService } from '../libs/services/authentication.service';
 import { ServiceProviderService } from '../libs/services/sp.service';
 
 @Component({
@@ -18,6 +17,7 @@ export class BrowseComponent implements OnInit {
   returnUrl: string;
   error = '';
   serviceProviders: ServiceProvider[] = [];
+  serviceProviders2: ServiceProvider[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,7 +42,8 @@ export class BrowseComponent implements OnInit {
       this.serviceProviders = results.data;
     });
     this.serviceProviderService.searchServiceProvider(this.route.snapshot.paramMap.get('search')).pipe(first()).subscribe(results => {
-      console.log('elastic'+results);
+      this.serviceProviders2 = results;
+      console.log(this.serviceProviders2);
     });
   }
 
