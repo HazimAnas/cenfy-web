@@ -59,7 +59,7 @@
       fxFlex="4 0 100%"
       class="list-item-card">
       <mat-card-header fxLayoutAlign="flex-start">
-        <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp.displayName}}</a></mat-card-title>
+        <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp._source.displayName}}</a></mat-card-title>
       </mat-card-header>
       <mat-card-content fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="0.5em">
         <img
@@ -71,10 +71,10 @@
         <div
           fxFlex="4 0 80%"
           fxFlex.lt-lg-="2 0 calc(50%)"
-          fxFlex.lt-md="1 0 calc(100%)">{{sp.description}}
+          fxFlex.lt-md="1 0 calc(100%)">{{sp._source.description}}
         </div>
       </mat-card-content>
-      <span *ngFor="let category of sp.categories">
+      <span *ngFor="let category of sp._source.categories">
         <a mat-button color="warn" routerLink="/home">{{category.name}}</a>
       </span>
       <mat-card-actions>

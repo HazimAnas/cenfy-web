@@ -46,20 +46,23 @@ export class HomeComponent implements OnInit {
 
   getServiceProvider() {
     this.serviceProviderService.getAll().pipe(first()).subscribe(results => {
-            this.serviceProviders = results.data;
+            this.serviceProviders = results.data.body.hits.hits;
     });
   }
 
-  onSubmit() {
+  onSubmitSearch() {
       this.submitted = true;
 
       // stop here if form is invalid
       if (this.searchForm.invalid) {
-          return;
+        return;
       }
 
       this.loading = true;
-
+      if (this.searchForm.controls['search'].value !== '') {
+        this.router.navigate(['/browse/'+this.searchForm.controls['search'].value]);
+        return;
+      }
       this.router.navigate([this.returnUrl]);
     }
 

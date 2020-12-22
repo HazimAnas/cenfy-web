@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import {Location} from '@angular/common';
 import { ServiceProvider } from '../libs/models/service-provider';
 import { ServiceProviderService } from '../libs/services/sp.service';
 
@@ -23,28 +24,48 @@ export class BrowseComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    private location: Location,
     private serviceProviderService: ServiceProviderService
   ) { }
 
   ngOnInit() {
     this.getServiceProvider();
-
+    this.loading = false;
     this.searchForm = this.formBuilder.group({
             search: [''],
     });
 
     // get return url from route parameters or default to '/home'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/browse/all';
   }
 
   getServiceProvider() {
-    this.serviceProviderService.getAll().pipe(first()).subscribe(results => {
-      this.serviceProviders = results.data;
-    });
+    this.loading = false;
     this.serviceProviderService.searchServiceProvider(this.route.snapshot.paramMap.get('search')).pipe(first()).subscribe(results => {
-      this.serviceProviders2 = results;
-      console.log(this.serviceProviders2);
+      this.serviceProviders = results.data.body.hits.hits;
     });
   }
+
+  onSubmitSearch() {
+      this.submitted = true;
+
+      // stop here if form is invalid
+      if (this.searchForm.invalid) {
+        return;
+      }
+
+      this.loading = true;
+      if (this.searchForm.controls['search'].value !== '') {
+        this.serviceProviderService.searchServiceProvider(this.searchForm.controls['search'].value).pipe(first()).subscribe(results => {
+          this.serviceProviders = results.data.body.hits.hits;
+        });
+        this.location.go('browse/'+this.searchForm.controls['search'].value);
+        this.loading = false;
+        return;
+      }
+      this.loading = false;
+      this.location.go(this.returnUrl);
+      this.getServiceProvider();
+    }
 
 }

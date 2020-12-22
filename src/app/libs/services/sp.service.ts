@@ -26,8 +26,8 @@ export class ServiceProviderService {
     }
 
     searchServiceProvider(search: string) {
-        if(search == ""){
-          return of([])
+        if(search == 'all'){
+          return this.getAll();
         }
         else {
           return this.http.get<any>(`${this.config.apiEndpoint}/sp/browse/${search}`);
