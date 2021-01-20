@@ -1,9 +1,10 @@
 .component {
-  margin: 0em 10em;
+  margin: 2em 10em;
 }
 
 .list-item-card {
   min-width: 20em;
+  margin-bottom: 2em;
 }
 
 .search-form {
@@ -27,3 +28,22 @@ mat-form-field {
     flex: 0 0 auto;
   }
 }
+
+mat-jumbotron-content {
+  background-image: url("http://localhost:3000/images/cover/Coverpage.png");
+  background-size: cover;
+}
+/*
+#visibilityContainer ::ng-deep ::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+
+#visibilityContainer ::ng-deep ::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.26) !important;
+}
+
+#visibilityContainer ::ng-deep ::-webkit-scrollbar-thumb {
+    background: red;
+}
+*/

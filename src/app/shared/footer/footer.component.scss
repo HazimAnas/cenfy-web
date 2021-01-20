@@ -1,1 +1,16 @@
+// Import theming functions
+@import '~@angular/material/theming';
 
+// Define a custom mixin that takes in the current theme
+@mixin theme-color-grabber($theme) {
+  // Parse the theme and create variables for each color in the pallete
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .footer {
+    min-height: 10em;
+    width: 100%;
+    background-color: mat-color($primary);
+  }
+}

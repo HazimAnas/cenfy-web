@@ -3,17 +3,19 @@
     <button mat-icon-button (click)="onToggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span><a routerLink="/" mat-button color="accent">{{ title }}!</a></span>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <img class="logo" src="http://localhost:3000/images/logo/servdoo3.png" alt="Photo of a Shiba Inu">
+    </div>
     <span class="fill-remaining-space"></span>
     <div class="header-button-row">
-      <a  mat-button color="warn" routerLink="home">Home</a>
-      <a *ngIf="!(isLoggedIn | async)" mat-button color="warn" routerLink="register">Register</a>
-      <a *ngIf="!(isLoggedIn | async)" mat-button color="warn" routerLink="login">Login</a>
-      <a *ngIf="isLoggedIn | async" mat-icon-button color="warn" routerLink="home"><mat-icon>help</mat-icon></a>
-      <a *ngIf="isLoggedIn | async" mat-icon-button color="warn" routerLink="home"><mat-icon>notifications</mat-icon></a>
-      <a *ngIf="isLoggedIn | async" mat-icon-button color="warn" routerLink="home"><mat-icon>message</mat-icon></a>
-      <a *ngIf="isLoggedIn | async" mat-button color="warn" routerLink="account/profile">Profile <span *ngIf="this.authenticationService.currentUserValue">({{(this.authenticationService.currentUserValue)?.displayName}})</span></a>
-      <a *ngIf="isLoggedIn | async" mat-button color="warn" (click)="onLogout()">Logout</a>
+      <a *ngIf="!(isLoggedIn | async)" mat-flat-button color="accent" routerLink="register">Register</a>
+      <a *ngIf="!(isLoggedIn | async)" mat-flat-button color="accent" routerLink="login">Login</a>
+      <a *ngIf="isLoggedIn | async" mat-icon-button color="accent" routerLink="home"><mat-icon>help</mat-icon></a>
+      <a *ngIf="isLoggedIn | async" mat-icon-button color="accent" routerLink="home"><mat-icon>notifications</mat-icon></a>
+      <a *ngIf="isLoggedIn | async" mat-icon-button color="accent" routerLink="home"><mat-icon>message</mat-icon></a>
+      <a  mat-button color="accent" routerLink="home">Home</a>
+      <a *ngIf="isLoggedIn | async" mat-button color="accent" routerLink="account/profile">Profile <span *ngIf="this.authenticationService.currentUserValue">({{(this.authenticationService.currentUserValue)?.displayName}})</span></a>
+      <a *ngIf="isLoggedIn | async" mat-button color="accent" (click)="onLogout()">Logout</a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

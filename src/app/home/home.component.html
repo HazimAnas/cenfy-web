@@ -1,10 +1,10 @@
-<div fxLayout="column">
+<div fxLayout="column" fxFill>
   <div flex>
     <mat-tab-group headerPosition="below" mat-align-tabs="center" dynamicHeight>
       <mat-tab label="First">
-        <mat-jumbotron imgURL="https://placeimg.com/640/480/any">
+        <mat-jumbotron imgURL="http://localhost:3000/images/cover/Coverpage.png">
           <mat-jumbotron-content>
-            <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">Welcome to Servpod</h1>
+            <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">Welcome to Scenfy</h1>
             <p class="headline" ngClass.xs="text-center">We provide blablabla...
             </p>
 
@@ -14,14 +14,14 @@
                  fxLayoutGap.xs="1rem"
                  fxLayoutAlign="center center">
               <a mat-stroked-button
-                 color="primary"
+                 color="accent"
                  target="_blank"
                  href="https://github.com/angular-material-extensions/jumbotron">
                 <mat-icon>code</mat-icon>
                 Test 1
               </a>
               <a mat-stroked-button
-                 color="primary"
+                 color="accent"
                  target="_blank"
                  href="doc/index.html">
                 <mat-icon>note</mat-icon>
@@ -33,65 +33,21 @@
         </mat-jumbotron>
       </mat-tab>
       <mat-tab label="Second">
-        <mat-jumbotron imgURL="https://placeimg.com/640/480/any">
+        <mat-jumbotron>
           <mat-jumbotron-content>
-            <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">jumbotron 2</h1>
-            <p class="headline" ngClass.xs="text-center">Angular UI open source library built
-              with material design in order to illustrate a highlighted/important information for the user
-            </p>
-
-            <p class="text-center"> Scroll down to see it in action!</p>
-
-            <div fxLayout="row" fxLayout.xs="column"
-                 fxLayoutGap.xs="1rem"
-                 fxLayoutAlign="center center">
-              <a mat-stroked-button
-                 color="primary"
-                 target="_blank"
-                 href="https://github.com/angular-material-extensions/jumbotron">
-                <mat-icon>code</mat-icon>
-                Test 1
-              </a>
-              <a mat-stroked-button
-                 color="primary"
-                 target="_blank"
-                 href="doc/index.html">
-                <mat-icon>note</mat-icon>
-                Test 2
-              </a>
-            </div>
+            <img mat-card-image
+              src="http://localhost:3000/images/cover/Coverpage 2.png"
+              alt="Placeholder image">
 
           </mat-jumbotron-content>
         </mat-jumbotron>
       </mat-tab>
       <mat-tab label="Third">
-        <mat-jumbotron imgURL="https://placeimg.com/640/480/any">
+        <mat-jumbotron>
           <mat-jumbotron-content>
-            <h1 class="display-1" ngClass.xs="display-3 text-center" ngClass.sm="display-3">jumbotron 3</h1>
-            <p class="headline" ngClass.xs="text-center">Angular UI open source library built
-              with material design in order to illustrate a highlighted/important information for the user
-            </p>
-
-            <p class="text-center"> Scroll down to see it in action!</p>
-
-            <div fxLayout="row" fxLayout.xs="column"
-                 fxLayoutGap.xs="1rem"
-                 fxLayoutAlign="center center">
-              <a mat-stroked-button
-                 color="primary"
-                 target="_blank"
-                 href="https://github.com/angular-material-extensions/jumbotron">
-                <mat-icon>code</mat-icon>
-                Test 1
-              </a>
-              <a mat-stroked-button
-                 color="primary"
-                 target="_blank"
-                 href="doc/index.html">
-                <mat-icon>note</mat-icon>
-                Test 2
-              </a>
-            </div>
+            <img mat-card-image
+              src="http://localhost:3000/images/cover/Coverpage.png"
+              alt="Placeholder image">
 
           </mat-jumbotron-content>
         </mat-jumbotron>
@@ -100,9 +56,9 @@
   </div>
   <div class="component">
     <div fxLayout="column" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
-      <mat-card class="search-container"
+      <mat-card
         fxFlex="4 0 100%"
-        class="list-item-card">
+        class="search-container list-item-card">
         <mat-card-header fxLayoutAlign="flex-start">
           <mat-card-title>Search</mat-card-title>
         </mat-card-header>
@@ -112,7 +68,8 @@
               <mat-form-field class="field-full-width"
                 fxFlex="4 0 80%"
                 fxFlex.lt-lg-="2 0 calc(80%)"
-                fxFlex.lt-sm="1 0 calc(100%)">
+                fxFlex.lt-sm="1 0 calc(100%)"
+                color="accent">
                   <mat-label for="search">Search</mat-label>
                   <input matInput placeholder="Enter search" type="text" formControlName="search" class="form-control" [ngClass]="{}" />
               </mat-form-field>
@@ -120,14 +77,15 @@
                 fxFlex="4 0 20%"
                 fxFlex.lt-lg-="2 0 calc(20%)"
                 fxFlex.lt-sm="1 0 calc(100%)">
-                  <button [disabled]="loading" class="btn btn-primary btn-search">Seach</button>
+                  <button [disabled]="loading" mat-flat-button color="primary" class="btn-search">Seach</button>
                   <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
               </div>
               <div *ngIf="error" class="alert alert-danger">{{error}}</div>
             </div>
             <mat-accordion>
               <mat-expansion-panel (opened)="panelOpenState = true"
-                                   (closed)="panelOpenState = false">
+                                   (closed)="panelOpenState = false"
+                                   class="advanced-search-container">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     Advanced search
@@ -149,71 +107,16 @@
       </mat-card>
     </div>
   </div>
+
+  <mat-divider></mat-divider>
+
   <div class="component">
-    <h1 class="mat-display-1">Featured service provider</h1>
 
-    <a mat-button color="primary" routerLink="/browse">Browse</a>
-
-    <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="0.5em">
-      <mat-card *ngFor="let sp of serviceProviders"
-        fxFlex="4 0 20%"
-        fxFlex.lt-lg-="2 0 calc(20%)"
-        fxFlex.lt-md-="2 0 calc(50%)"
-        fxFlex.lt-sm="1 0 calc(100%)"
-        class="list-item-card">
-        <mat-card-header fxLayoutAlign="flex-start">
-          <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp._source.displayName}}</a></mat-card-title>
-        </mat-card-header>
-        <img mat-card-image
-          src="https://placeimg.com/640/480/any"
-          alt="Placeholder image">
-        <mat-card-content>
-          <p>{{sp._source.description}}</p>
-        </mat-card-content>
-        <span *ngFor="let category of sp._source.categories">
-          <a mat-button color="warn" routerLink="/home">{{category.name}}</a>
-        </span>
-        <mat-card-actions>
-          <button mat-button>Favorite<mat-icon color="warn">favorite</mat-icon></button>
-          <button mat-button>Share<mat-icon color="warn">share</mat-icon></button>
-        </mat-card-actions>
-      </mat-card>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <h2 class="mat-h2">Featured service provider</h2>
     </div>
-  </div>
-  <div class="component">
-    <h1 class="mat-display-1">Explore service provider</h1>
 
-    <a mat-button color="primary" routerLink="/browse">Browse</a>
-
-    <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="0.5em">
-      <mat-card *ngFor="let sp of serviceProviders"
-        fxFlex="4 0 20%"
-        fxFlex.lt-md-="2 0 calc(50%)"
-        fxFlex.lt-sm="1 0 calc(100%)"
-        class="list-item-card">
-        <mat-card-header fxLayoutAlign="flex-start">
-          <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp._source.displayName}}</a></mat-card-title>
-        </mat-card-header>
-        <img mat-card-image
-          src="https://placeimg.com/640/480/any"
-          alt="Placeholder image">
-        <mat-card-content>
-          <p>{{sp._source.description}}</p>
-        </mat-card-content>
-        <span *ngFor="let category of sp._source.categories">
-          <a mat-button color="warn" routerLink="/home">{{category.name}}</a>
-        </span>
-        <mat-card-actions>
-          <button mat-button>Favorite<mat-icon color="warn">favorite</mat-icon></button>
-          <button mat-button>Share<mat-icon color="warn">share</mat-icon></button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
-  <div class="component">
-    <h1 class="mat-display-1">Explore categories</h1>
-
-    <a mat-button color="primary" routerLink="/browse">Browse</a>
+    <a mat-button color="accent" routerLink="/browse">Browse</a>
 
     <div class="scrolling-wrapper" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="0.5em">
       <mat-card class="card" *ngFor="let sp of serviceProviders"
@@ -228,22 +131,95 @@
           src="https://placeimg.com/640/480/any"
           alt="Placeholder image">
         <mat-card-content>
-          <p>Category description</p>
+          <p>{{sp._source.description}}</p>
         </mat-card-content>
         <span *ngFor="let category of sp._source.categories">
-          <a mat-button color="warn" routerLink="/home">{{category.name}}</a>
+          <a mat-button color="accent" routerLink="/browse/{{category.name}}">{{category.name}}</a>
         </span>
         <mat-card-actions>
-          <button mat-button>Favorite<mat-icon color="warn">favorite</mat-icon></button>
-          <button mat-button>Share<mat-icon color="warn">share</mat-icon></button>
+          <button mat-button>Favorite<mat-icon color="accent">favorite</mat-icon></button>
+          <button mat-button>Share<mat-icon color="accent">share</mat-icon></button>
         </mat-card-actions>
       </mat-card>
     </div>
   </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="component">
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <h2 class="mat-h2">Popular service provider</h2>
+    </div>
+
+    <a mat-button color="accent" routerLink="/browse">Browse</a>
+
+    <div class="scrolling-wrapper" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="0.5em">
+      <mat-card class="card" *ngFor="let sp of serviceProviders"
+        fxFlex="4 0 20%"
+        fxFlex.lt-md-="2 0 calc(50%)"
+        fxFlex.lt-sm="1 0 calc(100%)"
+        class="list-item-card">
+        <mat-card-header fxLayoutAlign="flex-start">
+          <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp._source.displayName}}</a></mat-card-title>
+        </mat-card-header>
+        <img mat-card-image
+          src="https://placeimg.com/640/480/any"
+          alt="Placeholder image">
+        <mat-card-content>
+          <p>{{sp._source.description}}</p>
+        </mat-card-content>
+        <span *ngFor="let category of sp._source.categories">
+          <a mat-button color="accent" routerLink="/home">{{category.name}}</a>
+        </span>
+        <mat-card-actions>
+          <button mat-button>Favorite<mat-icon color="accent">favorite</mat-icon></button>
+          <button mat-button>Share<mat-icon color="accent">share</mat-icon></button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="component">
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <h2 class="mat-h2">Explore service provider</h2>
+    </div>
+
+    <a mat-button color="accent" routerLink="/browse">Browse</a>
+
+    <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="0.5em">
+      <mat-card *ngFor="let sp of serviceProviders"
+        fxFlex="4 0 20%"
+        fxFlex.lt-md-="2 0 calc(50%)"
+        fxFlex.lt-sm="1 0 calc(100%)"
+        class="list-item-card">
+        <mat-card-header fxLayoutAlign="flex-start">
+          <mat-card-title><a mat-button color="accent" routerLink="/service-provider/{{sp._id}}">{{sp._source.displayName}}</a></mat-card-title>
+        </mat-card-header>
+        <img mat-card-image
+          src="https://placeimg.com/640/480/any"
+          alt="Placeholder image">
+        <mat-card-content>
+          <p>{{sp._source.description}}</p>
+        </mat-card-content>
+        <span *ngFor="let category of sp._source.categories">
+          <a mat-button color="accent" routerLink="/home">{{category.name}}</a>
+        </span>
+        <mat-card-actions>
+          <button mat-button>Favorite<mat-icon color="accent">favorite</mat-icon></button>
+          <button mat-button>Share<mat-icon color="accent">share</mat-icon></button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
   <div flex class="component">
-    <h1 class="mat-display-1">Statistics</h1>
+    <h2 class="mat-h2">Statistics</h2>
   </div>
   <div flex class="component">
-    <h1 class="mat-display-1">Contact</h1>
+    <h2 class="mat-h2">Contact</h2>
   </div>
 </div>

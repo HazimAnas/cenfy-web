@@ -1,4 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
-@import '@angular/material/prebuilt-themes/purple-green.css';
+/* @import './green-beige-theme.scss'; */
+@import './theme3.scss';
+@import '~@angular/material/theming';
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+
+// Define a custom mixin that takes in the current theme
+@mixin theme-color-scroller($theme) {
+  // Parse the theme and create variables for each color in the pallete
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  /* width */
+  ::-webkit-scrollbar {
+      width: 1em;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 1em;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+      background: mat-color($primary,200);
+      border-radius: 1em;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+      background: mat-color($primary);
+  }
+
+/*
+  .advanced-search-container {
+      background: mat-color($primary);
+  }
+*/
+
+  .mat-sidenav {
+      background: mat-color($primary,400);
+  }
+
+  .nav-caption {
+      color: mat-color($accent);
+  }
+
+  .mat-divider {
+      background: mat-color($primary,300);
+  }
+
+  .mat-h2 {
+      color: mat-color($primary);
+  }
+}
+@include theme-color-scroller($candy-app-theme);

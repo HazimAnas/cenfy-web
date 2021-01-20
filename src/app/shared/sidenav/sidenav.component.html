@@ -2,7 +2,7 @@
   <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
       <span class="nav-caption">Home</span>
   </a>
-  <a *ngIf="isLoggedIn | async" mat-list-item routerLink="/account/profile" (click)="onSidenavClose()">
+  <a *ngIf="isLoggedIn | async" mat-list-item color="primary" routerLink="/account/profile" (click)="onSidenavClose()">
       <span class="nav-caption">Account</span>
   </a>
   <a *ngIf="isLoggedIn | async" mat-list-item routerLink="/account/profile" (click)="onSidenavClose()">

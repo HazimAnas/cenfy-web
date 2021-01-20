@@ -63,11 +63,24 @@ export class ServiceProviderService {
             }));
     }
 
-    uploadServiceProviderImage(files: File, type: string ) {
+    uploadServiceProviderImage(id: string, files: File, type: string) {
       const data = new FormData();
       data.append('upload', files);
+      data.append('type', type);
+
 
       console.log(data.get('upload'));
-      return this.http.post<any>(`${this.config.apiEndpoint}/sp/uploadImage`, data);
+      return this.http.post<any>(`${this.config.apiEndpoint}/sp/uploadProfilePicture/`, data);
+    }
+
+    uploadServiceProviderProfileImage(id: string, files: File, type: string) {
+      const fd = new FormData();
+      fd.append('upload', files as File);
+      fd.append('type', type);
+
+
+      console.log(fd.get('upload'));
+      console.log(fd);
+      return this.http.post<any>(`${this.config.apiEndpoint}/sp/uploadProfilePicture/${id}`, fd);
     }
 }

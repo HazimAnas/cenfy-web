@@ -1,5 +1,6 @@
 main {
     /*padding: 10px;*/
+     background: #303030;
 }
 
 mat-sidenav-container, mat-sidenav-content {
@@ -26,4 +27,13 @@ app-footer {
 
 .field-full-width {
   width: 100%;
+}
+
+.content {
+  min-height: 40em;
+  background: #021635;
+}
+
+.mat-card {
+  background: #303030;
 }

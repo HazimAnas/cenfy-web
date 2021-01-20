@@ -1,10 +1,22 @@
 <div class="component">
   <div fxLayout="column" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
+    <mat-card class="service-provider-banner">
+      <img mat-card-image class="service-provider-banner" src="http://localhost:3000/images/servitor/Interior Design (MAG design + MAG builders)/Cover Photo.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+
+
     <mat-card
       fxFlex="4 0 98%"
       class="list-item-card">
       <mat-card-header fxLayoutAlign="flex-start">
-        <mat-card-title><div class="mat-headline"><a mat-button color="accent">{{serviceProvider?.displayName}}</a></div></mat-card-title>
+        <mat-card-title>
+          <div fxLayout="row" fxLayoutAlign="center center">
+          <h2 class="mat-h2">{{serviceProvider?.displayName}}</h2>
+        </div></mat-card-title>
       </mat-card-header>
       <mat-card-content fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
         <img
@@ -21,7 +33,7 @@
         </div>
       </mat-card-content>
       <span *ngFor="let category of serviceProvider?.categories">
-        <a mat-button color="warn" routerLink="/home">{{category?.name}}</a>
+        <a mat-button color="accent" routerLink="/home">{{category?.name}}</a>
       </span>
       <mat-card-actions>
         <mat-accordion class="contact-us">
@@ -35,7 +47,7 @@
 
             <mat-list>
               <mat-list-item>
-                <button [disabled]="loading" class="btn btn-primary btn-contact">Send message</button>
+                <button [disabled]="loading" mat-flat-button color="primary" class="btn btn-primary btn-contact">Send message</button>
               </mat-list-item>
               <mat-divider></mat-divider>
               <mat-list-item>
@@ -51,9 +63,145 @@
 
           </mat-expansion-panel>
         </mat-accordion>
-        <button mat-button>Favorite<mat-icon color="warn">favorite</mat-icon></button>
-        <button mat-button>Share<mat-icon color="warn">share</mat-icon></button>
+        <button mat-button>Favorite<mat-icon color="accent">favorite</mat-icon></button>
+        <button mat-button>Share<mat-icon color="accent">share</mat-icon></button>
       </mat-card-actions>
     </mat-card>
   </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <h2 class="mat-h2">Gallery</h2>
+  </div>
+
+  <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="0.5em">
+    <mat-card
+      fxFlex="4 0 20%"
+      fxFlex.lt-md-="2 0 calc(50%)"
+      fxFlex.lt-sm="1 0 calc(100%)"
+      class="list-item-card">
+      <mat-card-header fxLayoutAlign="flex-start">
+      </mat-card-header>
+      <img mat-card-image
+        src="http://localhost:3000/images/servitor/Interior Design (MAG design + MAG builders)/Photo 1.jpg"
+        alt="Placeholder image">
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card
+      fxFlex="4 0 20%"
+      fxFlex.lt-md-="2 0 calc(50%)"
+      fxFlex.lt-sm="1 0 calc(100%)"
+      class="list-item-card">
+      <mat-card-header fxLayoutAlign="flex-start">
+      </mat-card-header>
+      <img mat-card-image
+        src="http://localhost:3000/images/servitor/Interior Design (MAG design + MAG builders)/Photo 2.jpg"
+        alt="Placeholder image">
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card
+      fxFlex="4 0 20%"
+      fxFlex.lt-md-="2 0 calc(50%)"
+      fxFlex.lt-sm="1 0 calc(100%)"
+      class="list-item-card">
+      <mat-card-header fxLayoutAlign="flex-start">
+      </mat-card-header>
+      <img mat-card-image
+        src="http://localhost:3000/images/servitor/Interior Design (MAG design + MAG builders)/Photo 3.jpg"
+        alt="Placeholder image">
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card
+      fxFlex="4 0 20%"
+      fxFlex.lt-md-="2 0 calc(50%)"
+      fxFlex.lt-sm="1 0 calc(100%)"
+      class="list-item-card">
+      <mat-card-header fxLayoutAlign="flex-start">
+      </mat-card-header>
+      <img mat-card-image
+        src="http://localhost:3000/images/servitor/Interior Design (MAG design + MAG builders)/Photo 4.jpg"
+        alt="Placeholder image">
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card
+      fxFlex="4 0 20%"
+      fxFlex.lt-md-="2 0 calc(50%)"
+      fxFlex.lt-sm="1 0 calc(100%)"
+      class="list-item-card">
+      <mat-card-header fxLayoutAlign="flex-start">
+      </mat-card-header>
+      <img mat-card-image
+        src="http://localhost:3000/images/servitor/Interior Design (MAG design + MAG builders)/Photo 5.jpg"
+        alt="Placeholder image">
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card
+      fxFlex="4 0 20%"
+      fxFlex.lt-md-="2 0 calc(50%)"
+      fxFlex.lt-sm="1 0 calc(100%)"
+      class="list-item-card">
+      <mat-card-header fxLayoutAlign="flex-start">
+      </mat-card-header>
+      <img mat-card-image
+        src="http://localhost:3000/images/servitor/Interior Design (MAG design + MAG builders)/Photo 6.jpg"
+        alt="Placeholder image">
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card
+      fxFlex="4 0 20%"
+      fxFlex.lt-md-="2 0 calc(50%)"
+      fxFlex.lt-sm="1 0 calc(100%)"
+      class="list-item-card">
+      <mat-card-header fxLayoutAlign="flex-start">
+      </mat-card-header>
+      <img mat-card-image
+        src="http://localhost:3000/images/servitor/Interior Design (MAG design + MAG builders)/Photo 7.jpg"
+        alt="Placeholder image">
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card
+      fxFlex="4 0 20%"
+      fxFlex.lt-md-="2 0 calc(50%)"
+      fxFlex.lt-sm="1 0 calc(100%)"
+      class="list-item-card">
+      <mat-card-header fxLayoutAlign="flex-start">
+      </mat-card-header>
+      <img mat-card-image
+        src="http://localhost:3000/images/servitor/Interior Design (MAG design + MAG builders)/Photo 8.jpg"
+        alt="Placeholder image">
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+
 </div>

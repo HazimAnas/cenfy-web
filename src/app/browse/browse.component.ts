@@ -43,6 +43,7 @@ export class BrowseComponent implements OnInit {
     this.loading = false;
     this.serviceProviderService.searchServiceProvider(this.route.snapshot.paramMap.get('search')).pipe(first()).subscribe(results => {
       this.serviceProviders = results.data.body.hits.hits;
+      console.log(this.serviceProviders);
     });
   }
 
@@ -67,5 +68,15 @@ export class BrowseComponent implements OnInit {
       this.location.go(this.returnUrl);
       this.getServiceProvider();
     }
+
+    onSubmitSearchCategory(category: string) {
+        this.loading = true;
+        this.serviceProviderService.searchServiceProvider(category).pipe(first()).subscribe(results => {
+          this.serviceProviders = results.data.body.hits.hits;
+        });
+        this.location.go('browse/'+category);
+        this.loading = false;
+        return;
+      }
 
 }

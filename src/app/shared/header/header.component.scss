@@ -14,3 +14,7 @@ mat-toolbar, mat-toolbar-row {
      Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
 }
+
+.logo {
+  max-width: 7em;
+}

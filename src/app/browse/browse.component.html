@@ -1,11 +1,10 @@
 <div class="component">
-
   <h1 class="mat-display-1">Explore service provider</h1>
 
   <div fxLayout="column" fxLayout.lt-sm="column" fxLayoutGap="0.5em">
-    <mat-card class="search-container"
+    <mat-card
       fxFlex="4 0 100%"
-      class="list-item-card">
+      class="search-container list-item-card">
       <mat-card-header fxLayoutAlign="flex-start">
         <mat-card-title>Search</mat-card-title>
       </mat-card-header>
@@ -23,7 +22,7 @@
               fxFlex="4 0 20%"
               fxFlex.lt-lg-="2 0 calc(20%)"
               fxFlex.lt-sm="1 0 calc(100%)">
-                <button [disabled]="loading" class="btn btn-primary btn-search">Seach</button>
+                <button [disabled]="loading" mat-flat-button color="primary" class="btn-search">Seach</button>
                 <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
             </div>
             <div *ngIf="error" class="alert alert-danger">{{error}}</div>
@@ -54,6 +53,11 @@
       </mat-card-content>
     </mat-card>
   </div>
+</div>
+
+  <mat-divider></mat-divider>
+
+<div class="component">
   <div fxLayout="column" fxLayout.lt-md="column" fxLayoutGap="0.5em">
     <mat-card *ngFor="let sp of serviceProviders"
       fxFlex="4 0 100%"
@@ -75,11 +79,11 @@
         </div>
       </mat-card-content>
       <span *ngFor="let category of sp._source.categories">
-        <a mat-button color="warn" routerLink="/home">{{category.name}}</a>
+        <a mat-button color="accent" (click)="onSubmitSearchCategory(category.name)">{{category.name}}</a>
       </span>
       <mat-card-actions>
-        <button mat-button>Favorite<mat-icon color="warn">favorite</mat-icon></button>
-        <button mat-button>Share<mat-icon color="warn">share</mat-icon></button>
+        <button mat-button>Favorite<mat-icon color="accent">favorite</mat-icon></button>
+        <button mat-button>Share<mat-icon color="accent">share</mat-icon></button>
       </mat-card-actions>
     </mat-card>
   </div>

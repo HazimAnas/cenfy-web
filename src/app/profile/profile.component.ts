@@ -111,7 +111,19 @@ export class ProfileComponent implements OnInit {
                    this.error = error;
                    this.loading = false;
                });
-     this.loading = true;
+
+     this.spService.updateSp(this.serviceProvider._id, this.g.displayName.value, this.g.description.value, this.categories)
+         .pipe(first())
+         .subscribe(
+             data => {
+                   this.router.navigate(['/account/profile']);
+                   this.loading = false;
+             },
+             error => {
+                 this.error = error;
+                 this.loading = false;
+             });
+   this.loading = true;
    } else {
        this.spService.createSp(this.g.displayName.value, this.g.description.value, this.categories, this.authenticationService.currentUserValue._id)
            .pipe(first())
@@ -131,9 +143,13 @@ export class ProfileComponent implements OnInit {
 
    addCategory() {
      if( this.spForm.get('categories').value ) {
-       this.categories.push({name : this.spForm.get('categories').value})
+       this.categories.push({name : this.spForm.get('categories').value});
      }
 
+   }
+
+   removeCategory(i: number) {
+     this.categories.splice(i, 1);
    }
 
    imageChangedEvent: any = '';
@@ -145,7 +161,7 @@ export class ProfileComponent implements OnInit {
     }
     imageCropped(event: ImageCroppedEvent) {
         this.base64croppedImage = event.base64;
-        this.croppedImage = new File([this.convertDataUrlToBlob(event.base64)], this.serviceProvider.displayName, {type: `image/png`});
+        this.croppedImage = this.convertDataUrlToFile(event.base64);
 
     }
     imageLoaded(image: HTMLImageElement) {
@@ -159,9 +175,15 @@ export class ProfileComponent implements OnInit {
     }
 
     uploadProfilePicture() {
-      var url = window.URL.createObjectURL(this.croppedImage);
-      window.open(url);
-      this.spService.uploadServiceProviderImage(this.croppedImage, 'profile');
+      console.log(this.croppedImage);
+      this.spService.uploadServiceProviderProfileImage(this.serviceProvider._id, this.croppedImage, 'profile')
+      .subscribe(
+          res => {
+                console.log(res);
+          },
+          error => {
+              console.log(error);
+          });
     }
 
     convertDataUrlToBlob(dataUrl: any): Blob {
@@ -175,6 +197,23 @@ export class ProfileComponent implements OnInit {
         u8arr[n] = bstr.charCodeAt(n);
     }
 
-    return new Blob([u8arr], {type: `image/png`});
+    return new Blob([u8arr], {type: `image/jpg`});
   }
+
+  convertDataUrlToFile(dataUrl: any): File {
+  const arr = dataUrl.split(',');
+  const mime = arr[0].match(/:(.*?);/)[1];
+  const bstr = atob(arr[1]);
+  let n = bstr.length;
+  const u8arr = new Uint8Array(n);
+
+  while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+  }
+
+  let blob = new Blob([u8arr], {type: `image/jpg`});
+  let file = new File([blob], this.serviceProvider.displayName + '.jpg', {type: `image/jpg`});
+  console.log(file.name);
+  return file;
+}
 }
